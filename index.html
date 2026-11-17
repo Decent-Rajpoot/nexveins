@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NexVeins — Technology in Every Vein</title>
 <meta name="description" content="NexVeins builds custom software, AI copilots and workflow automations — engineered end-to-end by one senior team.">
-<link rel="icon" type="image/jpeg" href="assets/logo.jpeg">
+<link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -41,15 +41,19 @@
   .progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--cyan);z-index:80}
 
   /* ---------- pill nav ---------- */
-  .pill-nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:22px;background:rgba(14,15,19,.94);backdrop-filter:blur(12px);border-radius:999px;padding:7px;box-shadow:0 14px 44px rgba(0,0,0,.38);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  .pill-nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:24px;background:transparent;border-radius:999px;padding:12px 16px;transition:transform .45s cubic-bezier(.2,.7,.2,1),background .4s ease,box-shadow .4s ease,padding .4s ease,gap .4s ease;animation:navIn .9s cubic-bezier(.2,.7,.2,1) .15s backwards}
+  @keyframes navIn{from{transform:translate(-50%,-90px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
+  .pill-nav.scrolled{background:rgba(14,15,19,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 12px 40px rgba(0,0,0,.32);padding:7px 9px;gap:16px}
   .pill-nav.hide{transform:translate(-50%,-150%)}
-  .logo-chip{width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;flex:none}
-  .logo-chip img{width:30px;height:30px;object-fit:cover;border-radius:8px}
+  .logo-chip{width:46px;height:46px;display:grid;place-items:center;flex:none;transition:width .4s,height .4s}
+  .pill-nav.scrolled .logo-chip{width:34px;height:34px}
+  .logo-chip img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 10px rgba(255,255,255,.4)) drop-shadow(0 0 24px rgba(72,214,255,.25))}
   .plinks{display:flex;gap:20px}
   .plink{color:rgba(255,255,255,.82);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;transition:color .2s}
   .plink:hover{color:var(--cyan)}
-  .nav-cta{background:#fff;color:var(--ink);border-radius:999px;padding:10px 18px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:background .2s,color .2s}
+  .nav-cta{background:#fff;color:var(--ink);border-radius:999px;padding:11px 18px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:background .2s,color .2s,padding .4s}
   .nav-cta:hover{background:var(--cyan)}
+  .pill-nav.scrolled .nav-cta{padding:8px 14px}
   .burger{display:none;width:40px;height:40px;border-radius:50%;background:#fff;border:0;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px}
   .burger span{display:block;width:16px;height:2px;background:var(--ink);transition:transform .3s,opacity .3s}
   body.menu-open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
@@ -62,8 +66,8 @@
   .mobile-menu .mm-cta{font-family:var(--font-body);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--cyan);border-radius:999px;padding:14px 24px;margin-top:18px}
 
   /* ---------- corner CTA ---------- */
-  .corner-cta{position:fixed;right:18px;bottom:18px;z-index:66;display:flex;align-items:center;gap:14px;background:var(--ink);color:#fff;padding:14px 16px;border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,.4);transform:translateY(150%);transition:transform .55s cubic-bezier(.2,.7,.2,1)}
-  .corner-cta.show{transform:none}
+  .corner-cta{position:fixed;right:18px;bottom:18px;z-index:66;display:flex;align-items:center;gap:14px;background:var(--ink);color:#fff;padding:14px 16px;border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,.4);translate:0 150%;transition:translate .55s cubic-bezier(.2,.7,.2,1)}
+  .corner-cta.show{translate:0 0}
   .corner-cta .cta-txt{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;line-height:1.5}
   .corner-cta .cta-circle{width:36px;height:36px;border-radius:50%;background:var(--cyan);color:var(--ink);display:grid;place-items:center;flex:none}
 
@@ -197,6 +201,7 @@
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     .wire,.mq-track{animation:none}
+    .pill-nav{animation:none}
     .js .hl-line,.js .hero-script,.js .hero-tags,.js .hero-foot,.js .scroll-cue,.js [data-reveal]{opacity:1;transform:none}
   }
   @media (max-height:720px){.scroll-cue{display:none}}
@@ -206,6 +211,10 @@
     .plinks{display:none}
     .nav-cta{display:none}
     .burger{display:flex}
+    .pill-nav{gap:14px;padding:10px 12px}
+    .pill-nav.scrolled{gap:10px;padding:6px 7px}
+    .logo-chip{width:40px;height:40px}
+    .pill-nav.scrolled .logo-chip{width:32px;height:32px}
     .hero-top{padding-top:96px}
     .hero-foot{flex-direction:column;align-items:flex-start;gap:22px}
     .scroll-cue{display:none}
@@ -219,6 +228,18 @@
     .corner-cta .cta-txt{display:none}
     .corner-cta{padding:10px;border-radius:50%}
   }
+  @media (max-width:560px){
+    .hero-top{flex-direction:column;gap:6px;padding-top:92px}
+    .hero-tags{gap:10px}
+    .tag{font-size:12px;padding:8px 14px}
+    .hero-foot{gap:18px}
+    .btn-ink{padding:13px 20px}
+    .pstep{grid-template-columns:56px 1fr;gap:14px}
+    .sec-meta{flex-wrap:wrap;gap:8px 14px}
+    .bigquote{font-size:clamp(30px,9.4vw,44px)}
+    .cta-circle-big{width:72px;height:72px}
+    .foot-row{flex-direction:column;align-items:flex-start;gap:12px}
+  }
 </style>
 </head>
 <body>
@@ -230,7 +251,7 @@
 </a>
 
 <nav class="pill-nav" aria-label="Main">
-  <a class="logo-chip" href="#hero" aria-label="NexVeins home"><img src="assets/logo.jpeg" alt="NexVeins logo" width="30" height="30"></a>
+  <a class="logo-chip" href="#hero" aria-label="NexVeins home"><img src="assets/logo.png" alt="NexVeins logo"></a>
   <div class="plinks">
     <a class="plink" href="#process">Process</a>
     <a class="plink" href="#services">Services</a>
@@ -513,8 +534,7 @@
   gsap.registerPlugin(ScrollTrigger);
 
   var tl = gsap.timeline({defaults:{ease:'power3.out',duration:.8}});
-  tl.from('.pill-nav',{y:-70,opacity:0},0)
-    .to('.hl-line',{opacity:1,y:0,duration:.95,stagger:.14},.25)
+  tl.to('.hl-line',{opacity:1,y:0,duration:.95,stagger:.14},.25)
     .to('.hero-script',{opacity:1,y:0,duration:.7},.75)
     .to('.hero-tags',{opacity:1,y:0,duration:.7},.95)
     .to('.hero-foot',{opacity:1,y:0,duration:.7},1.1)
@@ -527,8 +547,10 @@
   }});
 
   var nav=document.querySelector('.pill-nav'),lastY=window.scrollY;
+  nav.classList.toggle('scrolled',window.scrollY>40);
   ScrollTrigger.create({start:0,end:'max',onUpdate:function(){
     var y=window.scrollY;
+    nav.classList.toggle('scrolled',y>40);
     nav.classList.toggle('hide',y>160&&y>lastY+2);
     if(Math.abs(y-lastY)>2)lastY=y;
   }});
