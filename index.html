@@ -3,216 +3,237 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyntch — A technology company developing cutting-edge software</title>
-<meta name="description" content="Move faster. Think bigger. AI integration, consulting, copilots and workflow automation for modern businesses.">
+<title>NexVeins — Technology in Every Vein</title>
+<meta name="description" content="NexVeins builds custom software, AI copilots and workflow automations — engineered end-to-end by one senior team.">
+<link rel="icon" type="image/jpeg" href="assets/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#06070b;
-    --bg-soft:#0b0d13;
-    --card:#0e1118;
-    --card-2:#11141d;
-    --line:rgba(255,255,255,.08);
-    --text:#f2f4f8;
-    --muted:#9aa3b2;
-    --accent:#c8f542;
-    --accent-ink:#0a0c04;
-    --glow:rgba(200,245,66,.14);
+    --bg:#04060c;
+    --bg-soft:#070a12;
+    --card:#0a0e19;
+    --line:rgba(148,184,255,.10);
+    --text:#eef3fb;
+    --muted:#9aa8c0;
+    --blue:#2f8dff;
+    --cyan:#48d6ff;
+    --accent-ink:#02101f;
+    --glow:rgba(47,141,255,.16);
     --radius:18px;
-    --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --font-display:"Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    --font-body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-  ::selection{background:var(--accent);color:var(--accent-ink)}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--cyan);color:var(--accent-ink)}
   a{color:inherit;text-decoration:none}
   img,svg{display:block}
   .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
 
+  .progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));z-index:60}
+
   /* ---------- header ---------- */
   header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
-  header.scrolled{background:rgba(6,7,11,.72);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;letter-spacing:-.02em}
-  .logo-mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#7ee787);display:grid;place-items:center;color:var(--accent-ink);font-weight:800;font-size:14px}
+  header.scrolled{background:rgba(4,6,12,.72);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:700;font-size:19px;letter-spacing:-.01em}
+  .logo-chip{background:#fff;border-radius:10px;padding:3px;display:grid;place-items:center;box-shadow:0 4px 16px rgba(47,141,255,.35)}
+  .logo-chip img{height:30px;width:30px;object-fit:cover;border-radius:7px}
   .nav-links{display:flex;gap:32px;align-items:center}
   .nav-links a{font-size:14.5px;color:var(--muted);transition:color .2s}
   .nav-links a:hover{color:var(--text)}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;font-size:14.5px;font-weight:600;cursor:pointer;border:none;transition:transform .15s,box-shadow .2s,background .2s;white-space:nowrap}
-  .btn-accent{background:var(--accent);color:var(--accent-ink);box-shadow:0 0 0 1px rgba(200,245,66,.3),0 8px 28px -8px var(--glow)}
-  .btn-accent:hover{transform:translateY(-1px);box-shadow:0 0 0 1px rgba(200,245,66,.45),0 14px 36px -8px var(--glow)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:14.5px;font-weight:600;cursor:pointer;border:none;font-family:var(--font-body);transition:transform .15s,box-shadow .25s,background .2s;white-space:nowrap}
+  .btn-accent{background:linear-gradient(135deg,var(--blue),var(--cyan));color:var(--accent-ink);box-shadow:0 8px 28px -8px var(--glow)}
+  .btn-accent:hover{transform:translateY(-1px);box-shadow:0 14px 40px -8px rgba(47,141,255,.45)}
   .btn-ghost{background:rgba(255,255,255,.05);color:var(--text);border:1px solid var(--line)}
   .btn-ghost:hover{background:rgba(255,255,255,.09)}
-  .btn-lg{padding:15px 28px;font-size:15.5px}
-  .burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:42px;height:42px;color:var(--text);cursor:pointer;font-size:18px}
-  .mobile-menu{display:none;position:fixed;inset:72px 0 auto 0;background:rgba(6,7,11,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:16px 24px 28px;z-index:49;flex-direction:column;gap:6px}
+  .btn-lg{padding:15px 30px;font-size:15.5px}
+  .burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:42px;height:42px;color:var(--text);cursor:pointer;font-size:18px;place-items:center}
+  .mobile-menu{display:none;position:fixed;inset:74px 0 auto 0;background:rgba(4,6,12,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:14px 24px 26px;z-index:49;flex-direction:column;gap:4px}
   .mobile-menu.open{display:flex}
-  .mobile-menu a{padding:12px 8px;font-size:16px;color:var(--muted);border-bottom:1px solid rgba(255,255,255,.05)}
-  .mobile-menu a:last-child{border:none}
+  .mobile-menu a{padding:13px 8px;font-size:16px;color:var(--muted);border-bottom:1px solid rgba(255,255,255,.05)}
+  .mobile-menu a:last-child{border:none;color:var(--cyan);font-weight:600}
 
   /* ---------- hero ---------- */
-  .hero{position:relative;padding:180px 0 110px;text-align:center}
-  .hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-  .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
-  .orb-1{width:560px;height:560px;background:var(--glow);top:-180px;left:50%;transform:translateX(-50%)}
-  .orb-2{width:420px;height:420px;background:rgba(94,140,255,.10);top:120px;right:-140px}
-  .orb-3{width:420px;height:420px;background:rgba(200,245,66,.07);top:220px;left:-160px}
-  .grid-lines{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 70% 60% at 50% 0%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 0%,#000 30%,transparent 75%)}
-  .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;border:1px solid rgba(200,245,66,.35);background:rgba(200,245,66,.08);color:var(--accent);font-size:13px;font-weight:600;margin-bottom:26px}
-  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 2s infinite}
-  @keyframes pulse{50%{opacity:.4}}
-  h1{font-size:clamp(42px,7vw,78px);line-height:1.05;letter-spacing:-.035em;font-weight:700;max-width:920px;margin:0 auto 24px}
-  h1 .accent{color:var(--accent)}
-  .hero-sub{font-size:clamp(17px,2.2vw,21px);color:var(--muted);max-width:560px;margin:0 auto 38px}
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:130px 0 90px;text-align:center;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;pointer-events:none}
+  #veins-canvas{position:absolute;inset:0;width:100%;height:100%}
+  .orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.5}
+  .orb-1{width:620px;height:620px;background:rgba(47,141,255,.14);top:-200px;left:50%;transform:translateX(-50%)}
+  .orb-2{width:420px;height:420px;background:rgba(72,214,255,.09);bottom:-120px;right:-140px}
+  .grid-lines{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 25%,transparent 78%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 25%,transparent 78%)}
+  .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;border:1px solid rgba(72,214,255,.35);background:rgba(47,141,255,.08);color:var(--cyan);font-size:13px;font-weight:600;margin-bottom:26px}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:pulse 2s infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  h1{font-family:var(--font-display);font-size:clamp(44px,7.4vw,86px);line-height:1.02;letter-spacing:-.035em;font-weight:700;max-width:940px;margin:0 auto 26px}
+  h1 .hl-accent{color:var(--cyan);font-style:normal}
+  .hero-sub{font-size:clamp(16.5px,2.2vw,20px);color:var(--muted);max-width:600px;margin:0 auto 40px}
   .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .hero-visual{margin-top:80px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));padding:14px;box-shadow:0 40px 120px -40px rgba(0,0,0,.8),0 0 0 1px rgba(200,245,66,.06)}
-  .hero-visual-inner{border-radius:14px;background:var(--bg-soft);padding:28px;display:flex;gap:16px;flex-wrap:wrap;align-items:stretch}
-  .hv-card{flex:1;min-width:200px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
-  .hv-metric{font-size:34px;font-weight:700;letter-spacing:-.02em;color:var(--accent)}
-  .hv-label{font-size:13px;color:var(--muted);margin-top:4px}
-  .hv-bar{height:6px;border-radius:999px;background:rgba(255,255,255,.07);margin-top:14px;overflow:hidden}
-  .hv-bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),#7ee787);width:var(--w,60%);animation:grow 1.4s cubic-bezier(.2,.8,.2,1)}
-  @keyframes grow{from{width:0}}
+  .scroll-cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase}
+  .scroll-cue .wire{width:1px;height:44px;background:rgba(148,184,255,.25);overflow:hidden;position:relative}
+  .scroll-cue .wire::after{content:"";position:absolute;left:0;top:-40%;width:100%;height:40%;background:linear-gradient(180deg,transparent,var(--cyan));animation:drip 2.2s ease-in-out infinite}
+  @keyframes drip{to{top:110%}}
 
   /* ---------- stats ---------- */
-  .stats{padding:70px 0;border-bottom:1px solid var(--line)}
+  .stats{padding:76px 0;border-bottom:1px solid var(--line)}
   .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
-  .stat-num{font-size:clamp(34px,4.5vw,52px);font-weight:700;letter-spacing:-.03em}
-  .stat-num span{color:var(--accent)}
+  .stat-num{font-family:var(--font-display);font-size:clamp(34px,4.5vw,54px);font-weight:700;letter-spacing:-.02em}
+  .stat-num span{color:var(--cyan)}
   .stat-label{color:var(--muted);font-size:14.5px;margin-top:6px}
 
   /* ---------- sections ---------- */
   section{padding:110px 0}
   .sec-head{text-align:center;max-width:680px;margin:0 auto 64px}
-  .sec-tag{display:inline-flex;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--accent);font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
-  h2{font-size:clamp(32px,4.6vw,50px);line-height:1.12;letter-spacing:-.03em;font-weight:700;margin-bottom:16px}
+  .sec-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1px solid rgba(72,214,255,.3);background:rgba(47,141,255,.07);color:var(--cyan);font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
+  h2{font-family:var(--font-display);font-size:clamp(32px,4.6vw,50px);line-height:1.12;letter-spacing:-.03em;font-weight:700;margin-bottom:16px}
   .sec-head p{color:var(--muted);font-size:17px}
 
-  /* process */
-  .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:step}
-  .step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;transition:transform .25s,border-color .25s}
-  .step:hover{transform:translateY(-4px);border-color:rgba(200,245,66,.35)}
-  .step-num{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.08em;margin-bottom:18px;display:inline-flex;width:44px;height:44px;border-radius:12px;border:1px solid rgba(200,245,66,.35);background:rgba(200,245,66,.08);align-items:center;justify-content:center}
-  .step h3{font-size:20px;margin-bottom:10px;letter-spacing:-.01em}
-  .step p{color:var(--muted);font-size:15px}
-  .step-line{position:absolute;top:54px;left:calc(100% + 10px);width:20px;height:1px;background:linear-gradient(90deg,rgba(200,245,66,.5),transparent)}
-  .step:last-child .step-line{display:none}
+  /* ---------- process (pinned) ---------- */
+  #process{padding:0}
+  .pin-space{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:90px 0}
+  .process-stage{position:relative;display:grid;grid-template-columns:1fr 250px;gap:40px;align-items:stretch}
+  .steps-col{display:grid;gap:34px}
+  .pstep{max-width:520px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 30px;transition:border-color .25s}
+  .pstep:hover{border-color:rgba(72,214,255,.4)}
+  .pstep:nth-child(2){margin-left:7%}
+  .pstep:nth-child(3){margin-left:14%}
+  .pstep-num{font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:.08em;display:inline-flex;width:44px;height:44px;border-radius:12px;border:1px solid rgba(72,214,255,.35);background:rgba(47,141,255,.08);align-items:center;justify-content:center;margin-bottom:16px}
+  .pstep h3{font-family:var(--font-display);font-size:21px;margin-bottom:8px;letter-spacing:-.01em}
+  .pstep p{color:var(--muted);font-size:15px}
+  .vein-svg{width:100%;max-height:640px;justify-self:end;overflow:visible}
+  .vein-svg path{fill:none;stroke:url(#vgrad);stroke-width:1.6;stroke-linecap:round}
+  .vein-node{fill:var(--cyan);filter:drop-shadow(0 0 6px rgba(72,214,255,.9));transform-origin:center;transform-box:fill-box;animation:pulse 2.4s infinite}
 
-  /* why */
+  /* ---------- why ---------- */
   .why{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .why-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
-  .why-item h3{font-size:22px;margin-bottom:12px;letter-spacing:-.01em}
-  .why-item p{color:var(--muted);font-size:15.5px;margin-bottom:28px}
-  .why-list{list-style:none;margin-top:26px;display:grid;gap:12px}
+  .why-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
+  .why-item h3{font-family:var(--font-display);font-size:21px;margin:26px 0 10px;letter-spacing:-.01em}
+  .why-item:first-of-type h3{margin-top:34px}
+  .why-item p{color:var(--muted);font-size:15.5px}
+  .why-list{list-style:none;margin-top:28px;display:grid;gap:12px}
   .why-list li{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:15px}
-  .why-list li svg{flex:none;margin-top:3px;color:var(--accent)}
-  .why-visual{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
-  .why-row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .why-list li svg{flex:none;margin-top:3px;color:var(--cyan)}
+  .why-visual{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .why-row{display:flex;align-items:center;gap:16px;padding:17px 0;border-bottom:1px solid var(--line)}
   .why-row:last-child{border:none;padding-bottom:0}
-  .why-avatar{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:700;font-size:14px;background:rgba(200,245,66,.1);color:var(--accent);border:1px solid rgba(200,245,66,.3);flex:none}
-  .why-row b{font-size:14.5px;display:block}
+  .why-icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(47,141,255,.1);color:var(--cyan);border:1px solid rgba(72,214,255,.3);flex:none}
+  .why-row b{font-size:14.5px;display:block;font-family:var(--font-display)}
   .why-row small{color:var(--muted);font-size:13px}
-  .why-pill{margin-left:auto;font-size:12px;padding:5px 12px;border-radius:999px;background:rgba(200,245,66,.1);color:var(--accent);border:1px solid rgba(200,245,66,.25);white-space:nowrap}
+  .why-pill{margin-left:auto;font-size:12px;padding:5px 12px;border-radius:999px;background:rgba(47,141,255,.1);color:var(--cyan);border:1px solid rgba(72,214,255,.25);white-space:nowrap}
 
-  /* marquee */
+  /* ---------- marquee ---------- */
   .marquee{padding:56px 0;border-bottom:1px solid var(--line);overflow:hidden}
   .marquee-label{text-align:center;color:var(--muted);font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:30px}
-  .marquee-track{display:flex;gap:72px;width:max-content;animation:scroll 28s linear infinite}
+  .marquee-track{display:flex;gap:72px;width:max-content;animation:scroll 30s linear infinite}
   .marquee:hover .marquee-track{animation-play-state:paused}
-  .marquee-track span{font-size:22px;font-weight:700;letter-spacing:-.01em;color:rgba(255,255,255,.32);display:flex;align-items:center;gap:10px;white-space:nowrap}
-  .marquee-track span::before{content:"";width:9px;height:9px;border-radius:3px;background:rgba(255,255,255,.2)}
+  .marquee-track span{font-family:var(--font-display);font-size:21px;font-weight:600;color:rgba(190,214,255,.35);display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .marquee-track span::before{content:"";width:8px;height:8px;border-radius:50%;background:rgba(72,214,255,.35)}
   @keyframes scroll{to{transform:translateX(-50%)}}
 
-  /* services */
+  /* ---------- services ---------- */
   .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
   .service{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;overflow:hidden;transition:transform .25s,border-color .25s}
-  .service:hover{transform:translateY(-4px);border-color:rgba(200,245,66,.35)}
-  .service::after{content:"";position:absolute;top:0;right:0;width:220px;height:220px;background:radial-gradient(circle,var(--glow),transparent 70%);opacity:0;transition:opacity .3s}
+  .service:hover{transform:translateY(-4px);border-color:rgba(72,214,255,.4)}
+  .service::after{content:"";position:absolute;top:0;right:0;width:240px;height:240px;background:radial-gradient(circle,rgba(47,141,255,.14),transparent 70%);opacity:0;transition:opacity .3s}
   .service:hover::after{opacity:1}
-  .service-icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:rgba(200,245,66,.09);border:1px solid rgba(200,245,66,.3);color:var(--accent);margin-bottom:22px}
-  .service h3{font-size:21px;margin-bottom:10px;letter-spacing:-.01em}
+  .service-icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:rgba(47,141,255,.09);border:1px solid rgba(72,214,255,.3);color:var(--cyan);margin-bottom:22px}
+  .service h3{font-family:var(--font-display);font-size:21px;margin-bottom:10px;letter-spacing:-.01em}
   .service p{color:var(--muted);font-size:15px;margin-bottom:18px}
-  .service-link{color:var(--accent);font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
-  .service-link:hover{gap:10px;transition:gap .2s}
   .service-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
   .service-tags span{font-size:12px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:rgba(255,255,255,.03)}
+  .service-link{color:var(--cyan);font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+  .service-link:hover{gap:10px;transition:gap .2s}
 
-  /* testimonial */
+  /* ---------- testimonial ---------- */
   .testimonial{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .quote-card{max-width:820px;margin:0 auto;text-align:center;position:relative}
-  .quote-mark{font-size:90px;line-height:1;color:var(--accent);font-family:Georgia,serif;height:52px}
-  blockquote{font-size:clamp(22px,3.2vw,32px);line-height:1.4;letter-spacing:-.02em;font-weight:500;margin-bottom:34px}
+  .quote-card{max-width:820px;margin:0 auto;text-align:center}
+  .quote-mark{font-size:90px;line-height:1;color:var(--cyan);font-family:Georgia,serif;height:52px}
+  blockquote{font-family:var(--font-display);font-size:clamp(22px,3.2vw,32px);line-height:1.4;letter-spacing:-.02em;font-weight:500;margin-bottom:34px}
   .quote-who{display:flex;align-items:center;justify-content:center;gap:14px}
-  .quote-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#5ec269);display:grid;place-items:center;font-weight:800;color:var(--accent-ink)}
+  .quote-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;font-weight:800;color:var(--accent-ink);font-family:var(--font-display)}
   .quote-who b{display:block;font-size:15.5px}
   .quote-who small{color:var(--muted);font-size:13.5px}
 
-  /* pricing */
+  /* ---------- pricing ---------- */
   .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
   .plan{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;display:flex;flex-direction:column}
-  .plan.hot{border-color:rgba(200,245,66,.45);background:linear-gradient(180deg,rgba(200,245,66,.06),var(--card) 45%);box-shadow:0 24px 70px -30px var(--glow);position:relative}
-  .plan-flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--accent-ink);font-size:12px;font-weight:700;padding:5px 14px;border-radius:999px;letter-spacing:.04em}
-  .plan h3{font-size:17px;color:var(--muted);font-weight:600;margin-bottom:12px}
-  .plan-price{font-size:46px;font-weight:700;letter-spacing:-.03em;margin-bottom:4px}
+  .plan.hot{border-color:rgba(72,214,255,.45);background:linear-gradient(180deg,rgba(47,141,255,.08),var(--card) 45%);box-shadow:0 24px 70px -30px var(--glow);position:relative}
+  .plan-flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--blue),var(--cyan));color:var(--accent-ink);font-size:12px;font-weight:700;padding:5px 14px;border-radius:999px;letter-spacing:.04em}
+  .plan h3{font-size:16px;color:var(--muted);font-weight:600;margin-bottom:12px}
+  .plan-price{font-family:var(--font-display);font-size:46px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
   .plan-price small{font-size:15px;color:var(--muted);font-weight:500}
   .plan-desc{color:var(--muted);font-size:14px;margin-bottom:26px}
   .plan ul{list-style:none;display:grid;gap:11px;margin-bottom:30px}
   .plan li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--muted)}
-  .plan li svg{flex:none;margin-top:4px;color:var(--accent)}
+  .plan li svg{flex:none;margin-top:4px;color:var(--cyan)}
   .plan .btn{width:100%;justify-content:center;margin-top:auto}
 
-  /* faq */
+  /* ---------- faq ---------- */
   .faq-list{max-width:760px;margin:0 auto;display:grid;gap:12px}
   .faq{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .25s}
-  .faq[open]{border-color:rgba(200,245,66,.35)}
+  .faq[open]{border-color:rgba(72,214,255,.4)}
   .faq summary{cursor:pointer;padding:22px 26px;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
   .faq summary::-webkit-details-marker{display:none}
   .faq summary .chev{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:transform .25s,color .25s}
-  .faq[open] .chev{transform:rotate(45deg);color:var(--accent)}
+  .faq[open] .chev{transform:rotate(45deg);color:var(--cyan)}
   .faq-body{padding:0 26px 24px;color:var(--muted);font-size:15px}
 
-  /* cta */
-  .cta-card{position:relative;text-align:center;background:linear-gradient(180deg,rgba(200,245,66,.09),rgba(200,245,66,.02));border:1px solid rgba(200,245,66,.3);border-radius:28px;padding:80px 32px;overflow:hidden}
+  /* ---------- cta ---------- */
+  .cta-card{position:relative;text-align:center;background:linear-gradient(180deg,rgba(47,141,255,.1),rgba(47,141,255,.02));border:1px solid rgba(72,214,255,.35);border-radius:28px;padding:84px 32px;overflow:hidden}
   .cta-card::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 60% 80% at 50% 100%,#000,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 60% 80% at 50% 100%,#000,transparent 70%);opacity:.6}
-  .cta-card h2{position:relative}
-  .cta-card p{position:relative;color:var(--muted);font-size:17px;max-width:480px;margin:0 auto 34px}
-  .cta-card .hero-cta{position:relative}
+  .cta-card h2,.cta-card p,.cta-card .hero-cta{position:relative}
+  .cta-card p{color:var(--muted);font-size:17px;max-width:480px;margin:0 auto 34px}
 
-  /* footer */
+  /* ---------- footer ---------- */
   footer{border-top:1px solid var(--line);padding:64px 0 36px;margin-top:40px}
   .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:56px}
   .foot-brand p{color:var(--muted);font-size:14.5px;max-width:280px;margin-top:14px}
   .foot-col h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:18px;font-weight:600}
   .foot-col a{display:block;color:var(--muted);font-size:14.5px;padding:5px 0;transition:color .2s}
-  .foot-col a:hover{color:var(--accent)}
+  .foot-col a:hover{color:var(--cyan)}
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:28px;color:var(--muted);font-size:13.5px}
   .socials{display:flex;gap:10px}
   .socials a{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:color .2s,border-color .2s}
-  .socials a:hover{color:var(--accent);border-color:rgba(200,245,66,.4)}
+  .socials a:hover{color:var(--cyan);border-color:rgba(72,214,255,.4)}
 
-  /* reveal */
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:none}
+  /* js-gated initial states (only when gsap confirmed) */
+  .js .hero-badge,.js .hero-sub,.js .hero-cta,.js .scroll-cue{opacity:0;transform:translateY(24px)}
+  .js .hl-line{opacity:0;transform:translateY(30px)}
+  .js [data-reveal]{opacity:0;transform:translateY(30px)}
 
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    html{scroll-behavior:auto}
+    .js .hero-badge,.js .hero-sub,.js .hero-cta,.js .scroll-cue,.js .hl-line,.js [data-reveal]{opacity:1;transform:none}
+  }
   @media (max-width:900px){
     .nav-links{display:none}
     .nav .btn-accent{display:none}
-    .burger{display:grid;place-items:center}
+    .burger{display:grid}
     .stats-grid{grid-template-columns:repeat(2,1fr);gap:36px}
-    .process-grid{grid-template-columns:1fr}
-    .step-line{display:none}
     .why-grid{grid-template-columns:1fr;gap:36px}
     .services-grid{grid-template-columns:1fr}
     .pricing-grid{grid-template-columns:1fr}
     .plan.hot{order:-1}
     .foot-grid{grid-template-columns:1fr 1fr}
+    #process{padding:110px 0}
+    .pin-space{min-height:0;padding:0}
+    .process-stage{grid-template-columns:1fr}
+    .vein-svg{display:none}
+    .pstep:nth-child(2),.pstep:nth-child(3){margin-left:0}
   }
 </style>
 </head>
 <body>
 
+<div class="progress" id="progress"></div>
+
 <header id="header">
   <div class="wrap nav">
-    <a href="#" class="logo"><span class="logo-mark">C</span>Cyntch</a>
+    <a href="#" class="logo"><span class="logo-chip"><img src="assets/logo.jpeg" alt="NexVeins logo"></span>NexVeins</a>
     <nav class="nav-links">
       <a href="#process">About</a>
       <a href="#services">Services</a>
@@ -228,67 +249,83 @@
   <a href="#services">Services</a>
   <a href="#pricing">Pricing</a>
   <a href="#contact">Contact</a>
-  <a href="#contact" style="color:var(--accent);font-weight:600">Book a free call →</a>
+  <a href="#contact">Book a free call →</a>
 </div>
 
 <main>
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="hero-bg">
       <div class="grid-lines"></div>
-      <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+      <div class="orb orb-1"></div><div class="orb orb-2"></div>
+      <canvas id="veins-canvas" aria-hidden="true"></canvas>
     </div>
     <div class="wrap">
-      <div class="badge reveal"><span class="dot"></span>Unlock the Power of Technology</div>
-      <h1 class="reveal">A technology company developing <span class="accent">cutting-edge</span> software</h1>
-      <p class="hero-sub reveal">Move faster. Think bigger. We help ambitious teams integrate AI, automate workflows and build software that scales.</p>
-      <div class="hero-cta reveal">
-        <a href="#services" class="btn btn-accent btn-lg">Learn more</a>
-        <a href="#contact" class="btn btn-ghost btn-lg">Book a free call</a>
-      </div>
-      <div class="hero-visual reveal">
-        <div class="hero-visual-inner">
-          <div class="hv-card"><div class="hv-metric">100k+</div><div class="hv-label">Active customers</div><div class="hv-bar"><i style="--w:86%"></i></div></div>
-          <div class="hv-card"><div class="hv-metric">60%</div><div class="hv-label">Manual work automated</div><div class="hv-bar"><i style="--w:60%"></i></div></div>
-          <div class="hv-card"><div class="hv-metric">99.9%</div><div class="hv-label">Platform uptime</div><div class="hv-bar"><i style="--w:99%"></i></div></div>
-        </div>
+      <div class="badge hero-badge"><span class="dot"></span>Software · AI · Automation</div>
+      <h1>
+        <span class="hl-line">Technology in</span>
+        <span class="hl-line"><em class="hl-accent">every vein</em>.</span>
+      </h1>
+      <p class="hero-sub">NexVeins builds the systems that run through the heart of your business — custom software, AI copilots and automations, engineered end-to-end by one senior team.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-accent btn-lg">Book a free call</a>
+        <a href="#services" class="btn btn-ghost btn-lg">Explore services</a>
       </div>
     </div>
+    <div class="scroll-cue">Scroll<span class="wire"></span></div>
   </section>
 
   <!-- STATS -->
   <div class="stats">
     <div class="wrap stats-grid">
-      <div class="reveal"><div class="stat-num">100k<span>+</span></div><div class="stat-label">Customers worldwide</div></div>
-      <div class="reveal"><div class="stat-num">500<span>+</span></div><div class="stat-label">Projects delivered</div></div>
-      <div class="reveal"><div class="stat-num">98<span>%</span></div><div class="stat-label">Client retention</div></div>
-      <div class="reveal"><div class="stat-num">24<span>/7</span></div><div class="stat-label">Dedicated support</div></div>
+      <div data-reveal><div class="stat-num"><span data-count="40" data-suffix="+">0+</span></div><div class="stat-label">Projects delivered</div></div>
+      <div data-reveal><div class="stat-num"><span data-count="98" data-suffix="%">0%</span></div><div class="stat-label">Client retention</div></div>
+      <div data-reveal><div class="stat-num"><span data-count="15" data-suffix="+">0+</span></div><div class="stat-label">Countries served</div></div>
+      <div data-reveal><div class="stat-num"><span>24/7</span></div><div class="stat-label">Support &amp; monitoring</div></div>
     </div>
   </div>
 
-  <!-- PROCESS -->
+  <!-- PROCESS (pinned, vein draws) -->
   <section id="process">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="sec-tag">Our process</div>
-        <h2>How we bring your vision to life</h2>
-        <p>A proven, three-step approach that turns ideas into production-grade software.</p>
-      </div>
-      <div class="process-grid">
-        <div class="step reveal">
-          <div class="step-num">01</div><span class="step-line"></span>
-          <h3>Focusing on Your Business</h3>
-          <p>We start by understanding your goals, market and challenges — so every technical decision serves a business outcome.</p>
+    <div class="pin-space">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="sec-tag">Our process</div>
+          <h2>How work flows through us</h2>
+          <p>A proven three-step flow that turns ideas into production-grade software.</p>
         </div>
-        <div class="step reveal">
-          <div class="step-num">02</div><span class="step-line"></span>
-          <h3>Developing Tailored Solutions</h3>
-          <p>No templates, no shortcuts. We design and build software shaped around your workflows, data and team.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step-num">03</div>
-          <h3>Scalability and Innovation</h3>
-          <p>We ship, measure and iterate — keeping your product fast, reliable and ahead of the competition as you grow.</p>
+        <div class="process-stage">
+          <div class="steps-col">
+            <div class="pstep pstep-1">
+              <div class="pstep-num">01</div>
+              <h3>Map the flow</h3>
+              <p>We start where it hurts — auditing your goals, data and bottlenecks so every technical decision serves a business outcome.</p>
+            </div>
+            <div class="pstep pstep-2">
+              <div class="pstep-num">02</div>
+              <h3>Engineer the system</h3>
+              <p>No templates, no shortcuts. We design and build the software, AI and integrations shaped around your workflows.</p>
+            </div>
+            <div class="pstep pstep-3">
+              <div class="pstep-num">03</div>
+              <h3>Keep it circulating</h3>
+              <p>We ship, monitor and iterate — keeping your product fast, reliable and ahead of the competition as you scale.</p>
+            </div>
+          </div>
+          <svg class="vein-svg" viewBox="0 0 250 700" aria-hidden="true">
+            <defs>
+              <linearGradient id="vgrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#48d6ff"/><stop offset="1" stop-color="#2f8dff"/>
+              </linearGradient>
+            </defs>
+            <path id="veinMain" d="M125 -10 C 55 90, 195 160, 125 260 C 55 360, 195 430, 125 530 C 55 630, 195 660, 125 710"/>
+            <path class="vein-branch" d="M125 260 C 170 290, 205 285, 240 330"/>
+            <path class="vein-branch" d="M125 530 C 85 565, 55 560, 20 610"/>
+            <path class="vein-branch" d="M125 130 C 95 105, 75 110, 45 85"/>
+            <circle class="vein-node" cx="125" cy="260" r="3.5"/>
+            <circle class="vein-node" cx="125" cy="530" r="3.5"/>
+            <circle class="vein-node" cx="125" cy="130" r="3.5"/>
+          </svg>
         </div>
       </div>
     </div>
@@ -297,74 +334,77 @@
   <!-- WHY -->
   <section class="why">
     <div class="wrap why-grid">
-      <div class="reveal">
-        <div class="sec-tag">Why choose us</div>
-        <h2 style="font-size:clamp(28px,3.8vw,42px)">Transforming with cutting-edge solutions</h2>
+      <div data-reveal>
+        <div class="sec-tag">Why NexVeins</div>
+        <h2 style="font-size:clamp(28px,3.8vw,42px)">Engineering that runs deep</h2>
         <div class="why-item">
-          <h3>Engineering-first mindset</h3>
-          <p>Our team blends product thinking with deep engineering craft — from AI systems to enterprise automation.</p>
+          <h3>Senior engineers only</h3>
+          <p>Every project is built by people who have shipped production systems before — no hand-offs to juniors mid-project.</p>
+        </div>
+        <div class="why-item">
+          <h3>Security by default</h3>
+          <p>Encrypted data handling, role-based access and private AI deployments come standard, not as an upsell.</p>
         </div>
         <ul class="why-list">
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Senior engineers on every project</li>
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Transparent pricing and timelines</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Security and compliance built in</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Weekly demos, working software early</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>One team from strategy to support</li>
         </ul>
       </div>
-      <div class="why-visual reveal">
-        <div class="sec-tag" style="margin-bottom:8px">Trusted by industry leaders</div>
-        <div class="why-row"><div class="why-avatar">NX</div><div><b>Nexara Labs</b><small>AI research platform</small></div><div class="why-pill">Partner</div></div>
-        <div class="why-row"><div class="why-avatar">VB</div><div><b>Vertex Bank</b><small>Financial services</small></div><div class="why-pill">Automation</div></div>
-        <div class="why-row"><div class="why-avatar">HL</div><div><b>Helix Health</b><small>Healthcare group</small></div><div class="why-pill">Copilots</div></div>
-        <div class="why-row"><div class="why-avatar">QT</div><div><b>Quanta Retail</b><small>E-commerce chain</small></div><div class="why-pill">Consulting</div></div>
-        <div class="why-row"><div class="why-avatar">NB</div><div><b>Nimbus Cloud</b><small>SaaS infrastructure</small></div><div class="why-pill">Integration</div></div>
+      <div class="why-visual" data-reveal>
+        <div class="sec-tag" style="margin-bottom:6px">Capabilities</div>
+        <div class="why-row"><div class="why-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 15l-2-2 2-2M15 9l2 2-2 2M13 7l-2 10"/></svg></div><div><b>Custom software</b><small>Web platforms, internal tools, APIs</small></div><div class="why-pill">Core</div></div>
+        <div class="why-row"><div class="why-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.9 5.7L20 9.5l-5 3.9 1.8 6.1L12 15.9 7.2 19.5 9 13.4 4 9.5l6.1-1.8z"/></svg></div><div><b>AI integration</b><small>Copilots, RAG pipelines, agents</small></div><div class="why-pill">Core</div></div>
+        <div class="why-row"><div class="why-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h10M4 17h7"/></svg></div><div><b>Automation</b><small>Workflow ops, data sync, alerts</small></div><div class="why-pill">Core</div></div>
+        <div class="why-row"><div class="why-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19l7-7-4-4-7 7v4h4zM5 21h14"/></svg></div><div><b>Product design</b><small>UX, UI systems, prototypes</small></div><div class="why-pill">Add-on</div></div>
       </div>
     </div>
   </section>
 
   <!-- MARQUEE -->
   <div class="marquee">
-    <div class="marquee-label">Powering teams at</div>
+    <div class="marquee-label">The stacks we build on</div>
     <div class="marquee-track">
-      <span>Nexara</span><span>Vertex</span><span>Helix</span><span>Quanta</span><span>Nimbus</span><span>Orbital</span><span>Skylane</span><span>Corevia</span>
-      <span>Nexara</span><span>Vertex</span><span>Helix</span><span>Quanta</span><span>Nimbus</span><span>Orbital</span><span>Skylane</span><span>Corevia</span>
+      <span>React</span><span>TypeScript</span><span>Node.js</span><span>Python</span><span>FastAPI</span><span>Flutter</span><span>PostgreSQL</span><span>AWS</span><span>Docker</span><span>OpenAI</span>
+      <span>React</span><span>TypeScript</span><span>Node.js</span><span>Python</span><span>FastAPI</span><span>Flutter</span><span>PostgreSQL</span><span>AWS</span><span>Docker</span><span>OpenAI</span>
     </div>
   </div>
 
   <!-- SERVICES -->
   <section id="services">
     <div class="wrap">
-      <div class="sec-head reveal">
+      <div class="sec-head" data-reveal>
         <div class="sec-tag">Services</div>
         <h2>Everything you need to move faster</h2>
         <p>From strategy to shipped product — four focused practices, one team.</p>
       </div>
-      <div class="services-grid">
-        <div class="service reveal">
+      <div class="services-grid" data-reveal-group>
+        <div class="service">
           <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 15l-2-2 2-2M15 9l2 2-2 2M13 7l-2 10"/></svg></div>
           <h3>AI &amp; Tools Integration</h3>
-          <p>Connect AI directly into your stack — CRMs, data warehouses, internal tools — so insights flow where work happens.</p>
+          <p>Connect AI directly into your stack — CRMs, data warehouses, internal tools — so insights flow where the work happens.</p>
           <div class="service-tags"><span>OpenAI</span><span>RAG pipelines</span><span>APIs</span></div>
           <a class="service-link" href="#contact">Get started <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-        <div class="service reveal">
+        <div class="service">
           <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
           <h3>Business Consulting</h3>
           <p>Digital strategy, process audits and technology roadmaps — practical advice that pays for itself in months, not years.</p>
           <div class="service-tags"><span>Strategy</span><span>Audits</span><span>Roadmaps</span></div>
           <a class="service-link" href="#contact">Get started <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-        <div class="service reveal">
+        <div class="service">
           <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.9 5.7L20 9.5l-5 3.9 1.8 6.1L12 15.9 7.2 19.5 9 13.4 4 9.5l6.1-1.8z"/></svg></div>
           <h3>AI Assistants &amp; Copilots</h3>
           <p>Custom copilots that draft, summarize, answer and act inside your products — trained on your own knowledge base.</p>
           <div class="service-tags"><span>Copilots</span><span>Chatbots</span><span>RAG</span></div>
           <a class="service-link" href="#contact">Get started <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-        <div class="service reveal">
-          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h11M4 7a2 2 0 104 0 2 2 0 00-4 0zM9 17h11M9 17a2 2 0 104 0 2 2 0 00-4 0zM15 7h5M20 17h-4M20 17a2 2 0 104 0 2 2 0 00-4 0z" transform="translate(-2 0)"/></svg></div>
+        <div class="service">
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h10M4 17h7"/></svg></div>
           <h3>Workflow Automation</h3>
           <p>Eliminate repetitive work with reliable automations across your tools — approvals, data sync, reporting, alerts.</p>
-          <div class="service-tags"><span>Zapier/n8n</span><span>Integrations</span><span>Ops</span></div>
+          <div class="service-tags"><span>n8n / Make</span><span>Integrations</span><span>Ops</span></div>
           <a class="service-link" href="#contact">Get started <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
@@ -373,12 +413,12 @@
 
   <!-- TESTIMONIAL -->
   <section class="testimonial">
-    <div class="wrap quote-card reveal">
+    <div class="wrap quote-card" data-reveal>
       <div class="quote-mark">“</div>
-      <blockquote>Cyntch transformed our operations with AI-driven automation — we cut manual work by 60% in the first quarter. They feel like part of our own team, not an outside vendor.</blockquote>
+      <blockquote>NexVeins rebuilt our operations around automation and AI. Manual work dropped by half in the first quarter — and they communicate like an in-house engineering department, not an outside vendor.</blockquote>
       <div class="quote-who">
-        <div class="quote-avatar">MG</div>
-        <div style="text-align:left"><b>Mike Green</b><small>CEO, Brightline Logistics</small></div>
+        <div class="quote-avatar">NV</div>
+        <div style="text-align:left"><b>Client partner</b><small>SaaS startup · sample feedback</small></div>
       </div>
     </div>
   </section>
@@ -386,13 +426,13 @@
   <!-- PRICING -->
   <section id="pricing">
     <div class="wrap">
-      <div class="sec-head reveal">
+      <div class="sec-head" data-reveal>
         <div class="sec-tag">Pricing</div>
         <h2>Simple plans, serious results</h2>
         <p>Start small, scale when you're ready. Every plan includes a dedicated point of contact.</p>
       </div>
-      <div class="pricing-grid">
-        <div class="plan reveal">
+      <div class="pricing-grid" data-reveal-group>
+        <div class="plan">
           <h3>Starter</h3>
           <div class="plan-price">$990<small>/month</small></div>
           <p class="plan-desc">For teams validating their first automation or AI use case.</p>
@@ -404,7 +444,7 @@
           </ul>
           <a href="#contact" class="btn btn-ghost">Get started</a>
         </div>
-        <div class="plan hot reveal">
+        <div class="plan hot">
           <div class="plan-flag">Most popular</div>
           <h3>Growth</h3>
           <div class="plan-price">$2,490<small>/month</small></div>
@@ -417,7 +457,7 @@
           </ul>
           <a href="#contact" class="btn btn-accent">Get started</a>
         </div>
-        <div class="plan reveal">
+        <div class="plan">
           <h3>Enterprise</h3>
           <div class="plan-price">Custom</div>
           <p class="plan-desc">For organizations with dedicated, high-scale engineering needs.</p>
@@ -436,28 +476,28 @@
   <!-- FAQ -->
   <section>
     <div class="wrap">
-      <div class="sec-head reveal">
+      <div class="sec-head" data-reveal>
         <div class="sec-tag">FAQs</div>
         <h2>Frequently asked questions</h2>
       </div>
       <div class="faq-list">
-        <details class="faq reveal" open>
-          <summary>What kind of companies do you work with?<span class="chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <details class="faq" data-reveal open>
+          <summary>What kind of companies does NexVeins work with?<span class="chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></summary>
           <div class="faq-body">We work with growth-stage startups, mid-market companies and enterprises across SaaS, finance, logistics and healthcare. If you have repetitive processes or data trapped in silos, we can help.</div>
         </details>
-        <details class="faq reveal">
+        <details class="faq" data-reveal>
           <summary>How long does a typical project take?<span class="chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></summary>
           <div class="faq-body">Most automation and integration projects ship in 2–6 weeks. Custom AI copilots and larger platform builds typically run 2–4 months, with working software delivered incrementally.</div>
         </details>
-        <details class="faq reveal">
+        <details class="faq" data-reveal>
           <summary>Do you work with our existing tools?<span class="chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></summary>
           <div class="faq-body">Yes. We integrate with your current stack — CRMs, ERPs, Slack, Notion, data warehouses and more — rather than forcing you onto new platforms.</div>
         </details>
-        <details class="faq reveal">
+        <details class="faq" data-reveal>
           <summary>How do you handle data security?<span class="chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></summary>
           <div class="faq-body">Security is built in from day one: encrypted data handling, role-based access, private model deployments where required, and full NDAs on every engagement.</div>
         </details>
-        <details class="faq reveal">
+        <details class="faq" data-reveal>
           <summary>What does a free call include?<span class="chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></summary>
           <div class="faq-body">A 30-minute session where we map your biggest bottleneck, outline a technical approach, and give you a rough timeline and budget — yours to keep, whether you hire us or not.</div>
         </details>
@@ -468,11 +508,11 @@
   <!-- CTA -->
   <section id="contact">
     <div class="wrap">
-      <div class="cta-card reveal">
-        <h2>Book a free call</h2>
-        <p>Tell us where your team is losing time. We'll show you exactly how technology can fix it — no strings attached.</p>
+      <div class="cta-card" data-reveal>
+        <h2>Put technology in every vein of your business</h2>
+        <p>Tell us where your team is losing time. We'll show you exactly how software, AI and automation can fix it — no strings attached.</p>
         <div class="hero-cta">
-          <a href="mailto:hello@cyntch.com" class="btn btn-accent btn-lg">Book a free call</a>
+          <a href="mailto:hello@nexveins.com" class="btn btn-accent btn-lg">Book a free call</a>
           <a href="#pricing" class="btn btn-ghost btn-lg">See pricing</a>
         </div>
       </div>
@@ -484,8 +524,8 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="#" class="logo"><span class="logo-mark">C</span>Cyntch</a>
-        <p>A technology company developing cutting-edge software. Move faster. Think bigger.</p>
+        <a href="#" class="logo"><span class="logo-chip"><img src="assets/logo.jpeg" alt="NexVeins logo"></span>NexVeins</a>
+        <p>Technology in Every Vein. Custom software, AI and automation — engineered end-to-end.</p>
       </div>
       <div class="foot-col">
         <h4>Company</h4>
@@ -497,16 +537,15 @@
         <h4>Resources</h4>
         <a href="#">Privacy policy</a>
         <a href="#">Terms of service</a>
-        <a href="#">Get template</a>
       </div>
       <div class="foot-col">
         <h4>Contact</h4>
-        <a href="mailto:hello@cyntch.com">hello@cyntch.com</a>
+        <a href="mailto:hello@nexveins.com">hello@nexveins.com</a>
         <a href="#contact">Book a free call</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Cyntch. All rights reserved.</span>
+      <span>© 2026 NexVeins. All rights reserved.</span>
       <div class="socials">
         <a href="#" aria-label="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.6 2H8l4.4 5.9L18.9 2zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3z"/></svg></a>
         <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v14H.2V8zm7.6 0h4.4v1.9h.1c.6-1.2 2.1-2.4 4.3-2.4 4.6 0 5.4 3 5.4 7V22h-4.6v-6.6c0-1.6 0-3.6-2.2-3.6s-2.6 1.7-2.6 3.5V22H7.8V8z"/></svg></a>
@@ -516,14 +555,157 @@
   </div>
 </footer>
 
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
 <script>
-  const header=document.getElementById('header');
-  addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>10),{passive:true});
-  const burger=document.getElementById('burger'),menu=document.getElementById('mobileMenu');
-  burger.onclick=()=>menu.classList.toggle('open');
-  menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('open'));
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+(function(){
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const header = document.getElementById('header');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 10), {passive:true});
+
+  const burger = document.getElementById('burger'), menu = document.getElementById('mobileMenu');
+  burger.onclick = () => menu.classList.toggle('open');
+  menu.querySelectorAll('a').forEach(a => a.onclick = () => menu.classList.remove('open'));
+
+  if (!window.gsap || reduced) return;
+  document.documentElement.classList.add('js');
+  gsap.registerPlugin(ScrollTrigger);
+
+  // hero intro
+  gsap.timeline({defaults:{ease:'power3.out',duration:.9}})
+    .to('.hero-badge',{opacity:1,y:0,duration:.6},.15)
+    .to('.hl-line',{opacity:1,y:0,duration:.9,stagger:.14},.2)
+    .to('.hero-sub',{opacity:1,y:0},.55)
+    .to('.hero-cta',{opacity:1,y:0},.65)
+    .to('.scroll-cue',{opacity:1,y:0},.8);
+
+  // hero content drifts up on scroll
+  gsap.to('.hero .wrap, .scroll-cue',{y:-70,opacity:0,ease:'none',
+    scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom 40%',scrub:true}});
+
+  // scroll progress
+  ScrollTrigger.create({start:0,end:'max',onUpdate:s=>gsap.set('#progress',{width:(s.progress*100)+'%'})});
+
+  // header hide/show
+  ScrollTrigger.create({onUpdate:s=>{
+    gsap.to('#header',{yPercent:(s.direction===1&&s.scroll()>160)?-110:0,duration:.35,overwrite:'auto'});
+  }});
+
+  // reveals
+  gsap.utils.toArray('[data-reveal]').forEach(el=>{
+    gsap.to(el,{opacity:1,y:0,duration:.85,ease:'power3.out',
+      scrollTrigger:{trigger:el,start:'top 88%',once:true}});
+  });
+  gsap.utils.toArray('[data-reveal-group]').forEach(g=>{
+    gsap.to(g.children,{opacity:1,y:0,duration:.8,ease:'power3.out',stagger:.12,
+      scrollTrigger:{trigger:g,start:'top 85%',once:true}});
+  });
+
+  // stat counters
+  gsap.utils.toArray('[data-count]').forEach(el=>{
+    const target=+el.dataset.count, suffix=el.dataset.suffix||'';
+    const o={v:0};
+    gsap.to(o,{v:target,duration:1.6,ease:'power2.out',
+      onUpdate:()=>el.textContent=Math.round(o.v)+suffix,
+      scrollTrigger:{trigger:el,start:'top 90%',once:true}});
+  });
+
+  // pinned process + vein draw (desktop)
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 900px)', () => {
+    const paths=[document.getElementById('veinMain'),...gsap.utils.toArray('.vein-branch')];
+    paths.forEach(p=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;});
+    const tl=gsap.timeline({scrollTrigger:{trigger:'.pin-space',start:'top top',end:'+=200%',scrub:.8,pin:true,anticipatePin:1}});
+    tl.to('#veinMain',{strokeDashoffset:0,ease:'none',duration:2.6},0)
+      .from('.pstep-1',{y:60,opacity:0,duration:.5},0)
+      .from('.pstep-2',{y:60,opacity:0,duration:.5},.8)
+      .from('.pstep-3',{y:60,opacity:0,duration:.5},1.5);
+    gsap.utils.toArray('.vein-branch').forEach((b,i)=>tl.to(b,{strokeDashoffset:0,ease:'none',duration:.4},1.1+i*.45));
+    tl.from('.vein-node',{scale:0,duration:.25,stagger:.4},1.05);
+  });
+
+  // CTA glow-in
+  gsap.from('.cta-card',{scale:.95,opacity:0,y:40,duration:1,ease:'power3.out',
+    scrollTrigger:{trigger:'.cta-card',start:'top 82%',once:true}});
+})();
+</script>
+<script type="module">
+import * as THREE from './vendor/three.module.js';
+try{
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canvas = document.getElementById('veins-canvas');
+  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true, powerPreference:'low-power'});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(55, 1, .1, 100);
+  camera.position.set(0, 0, 7.5);
+  const group = new THREE.Group(); scene.add(group);
+
+  // node cloud inside a squashed sphere
+  const N = 170, R = 4.6;
+  const nodePos = new Float32Array(N*3);
+  for(let i=0;i<N;i++){
+    const r = R*Math.cbrt(Math.random()), th = Math.random()*Math.PI*2, ph = Math.acos(2*Math.random()-1);
+    nodePos[i*3]   = r*Math.sin(ph)*Math.cos(th);
+    nodePos[i*3+1] = r*Math.sin(ph)*Math.sin(th)*.85;
+    nodePos[i*3+2] = r*Math.cos(ph)*.8;
+  }
+  const nodeGeo = new THREE.BufferGeometry();
+  nodeGeo.setAttribute('position', new THREE.BufferAttribute(nodePos,3));
+
+  // connect nearby nodes -> "veins"
+  const linePos = [], lineCol = [];
+  const cA = new THREE.Color(0x2f8dff), cB = new THREE.Color(0x48d6ff);
+  for(let i=0;i<N;i++) for(let j=i+1;j<N;j++){
+    const dx=nodePos[i*3]-nodePos[j*3], dy=nodePos[i*3+1]-nodePos[j*3+1], dz=nodePos[i*3+2]-nodePos[j*3+2];
+    if(dx*dx+dy*dy+dz*dz < 4.6){
+      linePos.push(nodePos[i*3],nodePos[i*3+1],nodePos[i*3+2], nodePos[j*3],nodePos[j*3+1],nodePos[j*3+2]);
+      const c1=cA.clone().lerp(cB,Math.random()), c2=cA.clone().lerp(cB,Math.random());
+      lineCol.push(c1.r,c1.g,c1.b, c2.r,c2.g,c2.b);
+    }
+  }
+  const lineGeo = new THREE.BufferGeometry();
+  lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePos,3));
+  lineGeo.setAttribute('color', new THREE.Float32BufferAttribute(lineCol,3));
+  const lineMat = new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:.3,blending:THREE.AdditiveBlending,depthWrite:false});
+  group.add(new THREE.LineSegments(lineGeo,lineMat));
+  group.add(new THREE.Points(nodeGeo,new THREE.PointsMaterial({color:0x66dcff,size:.075,transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true})));
+
+  function fit(){
+    const w = canvas.clientWidth || canvas.parentElement.clientWidth;
+    const h = canvas.clientHeight || canvas.parentElement.clientHeight;
+    renderer.setSize(w,h,false);
+    camera.aspect = w/h; camera.updateProjectionMatrix();
+  }
+  fit(); addEventListener('resize', fit);
+
+  let tx=0,ty=0,mx=0,my=0,sp=0;
+  addEventListener('mousemove', e=>{tx=e.clientX/innerWidth-.5; ty=e.clientY/innerHeight-.5;}, {passive:true});
+  if(window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.create({trigger:'#hero',start:'top top',end:'bottom top',scrub:true,onUpdate:s=>sp=s.progress});
+  }
+
+  let t=0, raf=null;
+  function tick(){
+    raf=null;
+    if(document.hidden){ return; }
+    t += .016;
+    mx += (tx-mx)*.05; my += (ty-my)*.05;
+    group.rotation.y = t*.06 + mx*.6;
+    group.rotation.x = my*.3 + sp*.35;
+    camera.position.z = 7.5 + sp*2.6;
+    group.position.y = sp*1.3;
+    lineMat.opacity = Math.max(.12, .3 - sp*.14);
+    renderer.render(scene, camera);
+    raf = requestAnimationFrame(tick);
+  }
+  if(reduced){ renderer.render(scene, camera); }
+  else{
+    document.addEventListener('visibilitychange', ()=>{ if(!document.hidden && !raf) raf=requestAnimationFrame(tick); });
+    raf = requestAnimationFrame(tick);
+  }
+}catch(e){ /* canvas is decorative; page works without it */ }
 </script>
 </body>
 </html>
