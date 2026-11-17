@@ -66,19 +66,19 @@
   .mobile-menu .mm-cta{font-family:var(--font-body);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--cyan);border-radius:999px;padding:14px 24px;margin-top:18px}
 
   /* ---------- corner CTA ---------- */
-  .corner-cta{position:fixed;right:18px;bottom:18px;z-index:66;display:flex;align-items:center;gap:14px;background:var(--ink);color:#fff;padding:14px 16px;border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,.4);translate:0 150%;transition:translate .55s cubic-bezier(.2,.7,.2,1)}
-  .corner-cta.show{translate:0 0}
+  .corner-cta{position:fixed;right:18px;bottom:18px;z-index:66;display:flex;align-items:center;gap:14px;background:var(--ink);color:#fff;padding:14px 16px;border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,.4);transform:translateY(150%);transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+  .corner-cta.show{transform:none}
   .corner-cta .cta-txt{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;line-height:1.5}
   .corner-cta .cta-circle{width:36px;height:36px;border-radius:50%;background:var(--cyan);color:var(--ink);display:grid;place-items:center;flex:none}
 
   /* ---------- hero ---------- */
-  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--indigo);color:#fff;overflow:hidden;padding-bottom:7vh}
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--indigo);color:#fff;overflow:hidden;padding-bottom:7vh}
   .hero-bg{position:absolute;inset:0;pointer-events:none}
   #veins-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.85}
   .hero-bg::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.15) 1px,transparent 1.4px);background-size:26px 26px;opacity:.5;mask-image:radial-gradient(ellipse 62% 55% at 30% 42%,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 62% 55% at 30% 42%,#000,transparent 75%)}
   .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 48% 42% at 50% 56%,rgba(20,18,110,.55),transparent 74%)}
-  .hero-shot{position:absolute;top:140px;right:0;z-index:3;width:min(300px,26vw);background:#fff;color:var(--ink);border-radius:16px;padding:16px 16px 13px;box-shadow:0 24px 60px rgba(10,8,60,.35);rotate:3deg;transition:rotate .35s}
-  .hero-shot:hover{rotate:1deg}
+  .hero-shot{position:absolute;top:140px;right:0;z-index:3;width:min(300px,26vw);background:#fff;color:var(--ink);border-radius:16px;padding:16px 16px 13px;box-shadow:0 24px 60px rgba(10,8,60,.35);transform:rotate(3deg);transition:transform .35s}
+  .hero-shot:hover{transform:rotate(1deg)}
   .hero-shot .shot-head{display:flex;align-items:center;gap:8px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(14,15,19,.62);border-bottom:1px solid var(--line-ink);padding-bottom:9px;margin-bottom:12px}
   .hero-shot .shot-head i{width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 3px rgba(72,214,255,.25);flex:none}
   .shot-row{margin-bottom:11px}
@@ -90,11 +90,7 @@
   .hero-wrap{position:relative;z-index:2}
   .hero-top{display:flex;justify-content:space-between;gap:16px;padding:110px 0 18px;border-bottom:1px solid var(--line-wht)}
   .hero-top .anno{color:rgba(255,255,255,.78)}
-  .hero-title{font-family:var(--font-display);font-weight:400;font-size:clamp(52px,10.2vw,140px);line-height:.92;text-transform:uppercase;letter-spacing:.005em;margin-top:22px}
-  .hero-title .l2{margin-left:6%}
-  .hero-title .l3{margin-left:15%}
-  .hero-title .outline{color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.92)}
-  @supports not (-webkit-text-stroke:1px #fff){.hero-title .outline{color:#fff}}
+  .hero-title{font-family:var(--font-display);font-weight:400;font-size:clamp(58px,12.4vw,176px);line-height:.92;text-transform:uppercase;letter-spacing:.005em;margin-top:22px}
   .circled{position:relative;display:inline-block}
   .circled svg{position:absolute;left:-7%;top:-16%;width:114%;height:136%;color:var(--cyan);pointer-events:none}
   .hero-script{font-family:var(--font-script);font-size:clamp(21px,2.5vw,30px);font-weight:600;color:var(--cyan);transform:rotate(-1.2deg);max-width:600px;margin-top:14px}
@@ -130,7 +126,7 @@
 
   /* ---------- process ---------- */
   .process{background:var(--teal);color:var(--ink);padding:0}
-  .pin-space{min-height:100svh;display:flex;align-items:center}
+  .pin-space{min-height:100vh;min-height:100svh;display:flex;align-items:center}
   .process-stage{display:grid;grid-template-columns:1fr 240px;gap:56px;align-items:start;margin-top:44px}
   .pstep{display:grid;grid-template-columns:104px 1fr;gap:20px;border-top:1px solid var(--line-ink);padding:24px 0 30px}
   .pstep .num{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,3.6vw,50px);line-height:1}
@@ -230,7 +226,7 @@
     .pill-nav.scrolled{gap:10px;padding:6px 7px}
     .logo-chip{width:40px;height:40px}
     .pill-nav.scrolled .logo-chip{width:32px;height:32px}
-    .hero-shot{position:static;width:min(320px,86%);margin:26px 0 0;rotate:2deg}
+    .hero-shot{position:static;width:min(320px,86%);margin:26px 0 0;transform:rotate(2deg)}
     .hero-top{padding-top:96px}
     .hero-foot{flex-direction:column;align-items:flex-start;gap:22px}
     .scroll-cue{display:none}
@@ -296,9 +292,8 @@
       <span class="anno">Est. 2026 — remote, worldwide</span>
     </div>
     <h1 class="hero-title">
-      <span class="hl-line l1">Technology</span>
-      <span class="hl-line l2 outline">in every</span>
-      <span class="hl-line l3"><span class="circled">vein<svg viewBox="0 0 220 92" fill="none" aria-hidden="true"><path d="M14 48C8 26 52 10 112 8s98 12 96 34-44 36-102 38S22 72 14 48Z" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".9"/></svg></span></span>
+      <span class="hl-line">Technology</span>
+      <span class="hl-line">in every <span class="circled">vein<svg viewBox="0 0 220 92" fill="none" aria-hidden="true"><path d="M14 48C8 26 52 10 112 8s98 12 96 34-44 36-102 38S22 72 14 48Z" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".9"/></svg></span></span>
     </h1>
     <p class="hero-script">we build the systems your business runs on — and the intelligence that runs inside them.</p>
     <div class="hero-tags" aria-label="What we do">
@@ -548,6 +543,7 @@
   </div>
 </footer>
 
+<script src="assets/vendor/three.min.js"></script>
 <script src="assets/vendor/gsap.min.js"></script>
 <script src="assets/vendor/ScrollTrigger.min.js"></script>
 <script>
@@ -640,87 +636,160 @@
   });
 })();
 </script>
-<script type="module">
-import * as THREE from './assets/vendor/three.module.js';
-try{
-  const canvas=document.getElementById('veins-canvas');
-  if(!canvas) throw new Error('no canvas');
-  const parent=canvas.parentElement;
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'low-power'});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
-  const scene=new THREE.Scene();
-  const camera=new THREE.PerspectiveCamera(55,1,.1,100);
-  camera.position.z=7.5;
-  const group=new THREE.Group();
-  scene.add(group);
+<script>
+(function(){
+  try{
+    if(!window.THREE) return;
+    var canvas=document.getElementById('veins-canvas');
+    if(!canvas) return;
+    var parent=canvas.parentElement;
+    var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true,powerPreference:'low-power'});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+    var scene=new THREE.Scene();
+    var camera=new THREE.PerspectiveCamera(55,1,.1,100);
+    camera.position.z=7.5;
+    var group=new THREE.Group();
+    scene.add(group);
+    group.position.y=.2;
 
-  const N=170,R=4.6,pts=[];
-  for(let i=0;i<N;i++){
-    const r=R*Math.cbrt(Math.random())*(0.75+0.25*Math.random());
-    const th=Math.random()*Math.PI*2,ph=Math.acos(2*Math.random()-1);
-    pts.push(new THREE.Vector3(r*Math.sin(ph)*Math.cos(th),r*Math.sin(ph)*Math.sin(th)*.62,r*Math.cos(ph)));
-  }
-  const seg=[],segCol=[];
-  const cA=new THREE.Color('#48d6ff'),cB=new THREE.Color('#ffffff');
-  for(let i=0;i<N;i++)for(let j=i+1;j<N;j++){
-    if(pts[i].distanceToSquared(pts[j])<4.6){
-      seg.push(pts[i].x,pts[i].y,pts[i].z,pts[j].x,pts[j].y,pts[j].z);
-      const c=cA.clone().lerp(cB,Math.random());
-      segCol.push(c.r,c.g,c.b,c.r,c.g,c.b);
+    var N=150,R=4.6,pts=[];
+    for(var i=0;i<N;i++){
+      var r=R*Math.cbrt(Math.random())*(.72+.28*Math.random());
+      var th=Math.random()*Math.PI*2,ph=Math.acos(2*Math.random()-1);
+      pts.push(new THREE.Vector3(r*Math.sin(ph)*Math.cos(th),r*Math.sin(ph)*Math.sin(th)*.62,r*Math.cos(ph)));
     }
-  }
-  const lineGeo=new THREE.BufferGeometry();
-  lineGeo.setAttribute('position',new THREE.Float32BufferAttribute(seg,3));
-  lineGeo.setAttribute('color',new THREE.Float32BufferAttribute(segCol,3));
-  group.add(new THREE.LineSegments(lineGeo,new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:.5,blending:THREE.AdditiveBlending,depthWrite:false})));
-  const dotGeo=new THREE.BufferGeometry().setFromPoints(pts);
-  group.add(new THREE.Points(dotGeo,new THREE.PointsMaterial({color:0xffffff,size:.055,transparent:true,opacity:.9,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true})));
-  group.position.y=.2;
 
-  function fit(){
-    const r=parent.getBoundingClientRect();
-    const w=r.width||canvas.clientWidth,h=r.height||canvas.clientHeight;
-    if(!w||!h)return;
-    renderer.setSize(w,h,false);
-    camera.aspect=w/h;
-    camera.updateProjectionMatrix();
-    renderer.render(scene,camera);
-  }
-  fit();
-  requestAnimationFrame(()=>requestAnimationFrame(fit));
-  window.addEventListener('load',fit);
-  setTimeout(fit,400);
-  window.addEventListener('resize',fit);
+    // curved organic vein segments between nearby nodes
+    var SUB=7,segPos=[],segT=[];
+    var UP=new THREE.Vector3(0,1,0);
+    for(i=0;i<N;i++)for(var j=i+1;j<N;j++){
+      var d2=pts[i].distanceToSquared(pts[j]);
+      if(d2<4.6){
+        var mid=pts[i].clone().add(pts[j]).multiplyScalar(.5);
+        var off=pts[i].clone().sub(pts[j]).cross(UP);
+        if(off.lengthSq()<1e-6) off.set(1,0,0);
+        off.normalize().multiplyScalar(Math.sqrt(d2)*(.18+.22*Math.random())*(Math.random()<.5?-1:1));
+        mid.add(off);
+        var prev=null;
+        for(var s=0;s<=SUB;s++){
+          var t=s/SUB,a=(1-t)*(1-t),b=2*(1-t)*t,c=t*t;
+          var p=new THREE.Vector3(a*pts[i].x+b*mid.x+c*pts[j].x,a*pts[i].y+b*mid.y+c*pts[j].y,a*pts[i].z+b*mid.z+c*pts[j].z);
+          if(prev){
+            var dm=(prev.length()+p.length())*.5;
+            segPos.push(prev.x,prev.y,prev.z,p.x,p.y,p.z);
+            segT.push(dm,dm);
+          }
+          prev=p;
+        }
+      }
+    }
+    var lineGeo=new THREE.BufferGeometry();
+    lineGeo.setAttribute('position',new THREE.Float32BufferAttribute(segPos,3));
+    var segCount=segT.length;
+    var colArr=new Float32Array(segCount*3);
+    lineGeo.setAttribute('color',new THREE.BufferAttribute(colArr,3));
+    group.add(new THREE.LineSegments(lineGeo,new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:.6,blending:THREE.AdditiveBlending,depthWrite:false})));
 
-  let mx=0,my=0,tmx=0,tmy=0,sp=0;
-  window.addEventListener('pointermove',e=>{
-    tmx=(e.clientX/window.innerWidth-.5)*2;
-    tmy=(e.clientY/window.innerHeight-.5)*2;
-  },{passive:true});
-  if(window.gsap&&window.ScrollTrigger){
-    ScrollTrigger.create({trigger:'#hero',start:'top top',end:'bottom top',scrub:true,onUpdate:s=>{sp=s.progress}});
-  }
-  function render(){renderer.render(scene,camera)}
-  render();
-  let running=true;
-  function tick(){
-    if(!running)return;
-    requestAnimationFrame(tick);
-    mx+=(tmx-mx)*.05;
-    my+=(tmy-my)*.05;
-    group.rotation.y=mx*.5+sp*1.4;
-    group.rotation.x=my*.3+sp*.6;
-    group.position.z=sp*2.6;
+    var nodeGeo=new THREE.BufferGeometry().setFromPoints(pts);
+    var nCol=new Float32Array(N*3);
+    nodeGeo.setAttribute('color',new THREE.BufferAttribute(nCol,3));
+    group.add(new THREE.Points(nodeGeo,new THREE.PointsMaterial({vertexColors:true,size:.075,transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true})));
+
+    // glowing wireframe core
+    var core=new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(1.05,1)),new THREE.LineBasicMaterial({color:0x48d6ff,transparent:true,opacity:.3,blending:THREE.AdditiveBlending,depthWrite:false}));
+    group.add(core);
+    var glow=new THREE.Mesh(new THREE.SphereGeometry(.72,24,18),new THREE.MeshBasicMaterial({color:0x2f8dff,transparent:true,opacity:.14,blending:THREE.AdditiveBlending,depthWrite:false}));
+    group.add(glow);
+
+    // far dust field for depth
+    var dn=260,dp=[];
+    for(i=0;i<dn;i++){
+      var rr=9+Math.random()*13,t2=Math.random()*Math.PI*2,p2=Math.acos(2*Math.random()-1);
+      dp.push(rr*Math.sin(p2)*Math.cos(t2),rr*Math.sin(p2)*Math.sin(p2)*.6,rr*Math.cos(p2));
+    }
+    var dustGeo=new THREE.BufferGeometry();
+    dustGeo.setAttribute('position',new THREE.Float32BufferAttribute(dp,3));
+    var dust=new THREE.Points(dustGeo,new THREE.PointsMaterial({color:0xffffff,size:.035,transparent:true,opacity:.5,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true}));
+    scene.add(dust);
+
+    function fit(){
+      var rect=parent.getBoundingClientRect();
+      var w=rect.width||canvas.clientWidth,h=rect.height||canvas.clientHeight;
+      if(!w||!h)return;
+      renderer.setSize(w,h,false);
+      camera.aspect=w/h;
+      camera.updateProjectionMatrix();
+      renderer.render(scene,camera);
+    }
+    fit();
+    requestAnimationFrame(function(){requestAnimationFrame(fit)});
+    window.addEventListener('load',fit);
+    setTimeout(fit,400);
+    window.addEventListener('resize',fit);
+
+    var mx=0,my=0,tmx=0,tmy=0,sp=0,t=0;
+    window.addEventListener('pointermove',function(e){
+      tmx=(e.clientX/window.innerWidth-.5)*2;
+      tmy=(e.clientY/window.innerHeight-.5)*2;
+    },{passive:true});
+    if(window.gsap&&window.ScrollTrigger){
+      ScrollTrigger.create({trigger:'#hero',start:'top top',end:'bottom top',scrub:true,onUpdate:function(s){sp=s.progress}});
+    }
+
+    // light pulses travel outward along the veins
+    var cBase=new THREE.Color(0x2f8dff),cHot=new THREE.Color(0xa5f3ff),tmpC=new THREE.Color();
+    function paint(w1,w2){
+      var k,d,g;
+      for(k=0;k<segCount;k++){
+        d=segT[k];
+        g=Math.exp(-(d-w1)*(d-w1)*3.4)+.7*Math.exp(-(d-w2)*(d-w2)*3.4);
+        if(g>1)g=1;
+        var f=.3+.7*g;
+        tmpC.copy(cBase).lerp(cHot,g);
+        colArr[k*3]=tmpC.r*f;colArr[k*3+1]=tmpC.g*f;colArr[k*3+2]=tmpC.b*f;
+      }
+      lineGeo.attributes.color.needsUpdate=true;
+      for(k=0;k<N;k++){
+        d=pts[k].length();
+        g=Math.exp(-(d-w1)*(d-w1)*3.4)+.7*Math.exp(-(d-w2)*(d-w2)*3.4);
+        if(g>1)g=1;
+        tmpC.copy(cBase).lerp(cHot,.25+.75*g);
+        nCol[k*3]=tmpC.r;nCol[k*3+1]=tmpC.g;nCol[k*3+2]=tmpC.b;
+      }
+      nodeGeo.attributes.color.needsUpdate=true;
+    }
+    function render(){renderer.render(scene,camera)}
+
+    var running=true;
+    function tick(){
+      if(!running)return;
+      requestAnimationFrame(tick);
+      t+=.016;
+      mx+=(tmx-mx)*.05;my+=(tmy-my)*.05;
+      var w1=(t*.85)%7.6,w2=(t*.85+3.8)%7.6;
+      paint(w1,w2);
+      group.rotation.y=mx*.5+sp*1.4+t*.04;
+      group.rotation.x=my*.3+sp*.6;
+      group.position.z=sp*2.6;
+      camera.position.y=Math.sin(t*.35)*.14;
+      core.rotation.y=-t*.14;core.rotation.x=t*.08;
+      glow.scale.setScalar(1+.22*Math.sin(t*2.1));
+      glow.material.opacity=.11+.06*Math.sin(t*2.1);
+      dust.rotation.y=t*.01;
+      render();
+    }
+    paint(2.4,6.2);
     render();
-  }
-  if(!reduced) tick();
-  document.addEventListener('visibilitychange',()=>{
-    const v=document.visibilityState==='visible';
-    if(v&&!running&&!reduced){running=true;tick();}
-    else if(!v){running=false;}
-  });
-}catch(e){ /* canvas is decorative; indigo background stands on its own */ }
+    if(reduced){render();}
+    else{tick();}
+    document.addEventListener('visibilitychange',function(){
+      var v=document.visibilityState==='visible';
+      if(v&&!running&&!reduced){running=true;tick();}
+      else if(!v){running=false;}
+    });
+  }catch(e){ /* decorative canvas — indigo background stands on its own */ }
+})();
 </script>
 </body>
 </html>
