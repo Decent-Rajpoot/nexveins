@@ -7,6 +7,16 @@
 <meta name="description" content="NexVeins designs, builds and runs custom software, AI copilots and workflow automations — one senior team, fixed-scope sprints, code you own.">
 <link rel="canonical" href="https://nexveins.com/">
 <meta name="theme-color" content="#4643e0">
+<script>
+(function(){try{
+  var t=null;
+  try{t=localStorage.getItem('nv-theme')}catch(e){}
+  if(t!=='light'&&t!=='dark')t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';
+  document.documentElement.setAttribute('data-theme',t);
+  var m=document.querySelector('meta[name="theme-color"]');
+  if(m)m.setAttribute('content',t==='light'?'#f5f3ee':'#0e0f13');
+}catch(e){}})();
+</script>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
@@ -330,6 +340,47 @@
     .cta-circle-big{width:72px;height:72px}
     .foot-row{flex-direction:column;align-items:flex-start;gap:12px}
   }
+
+  /* ---------- theme toggle ---------- */
+  html{color-scheme:dark}
+  .theme-toggle{position:fixed;top:16px;right:16px;z-index:75;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;padding:0;background:rgba(14,15,19,.38);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);box-shadow:0 12px 40px rgba(0,0,0,.25);color:#fff;transition:background .4s ease,border-color .4s ease,color .4s ease,box-shadow .4s ease,transform .3s ease}
+  .theme-toggle:hover{transform:scale(1.1)}
+  .theme-toggle svg{grid-area:1/1;transition:opacity .35s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
+  .tt-moon{opacity:0;transform:rotate(-90deg) scale(.4)}
+  html[data-theme="light"] .tt-moon{opacity:1;transform:none}
+  html[data-theme="light"] .tt-sun{opacity:0;transform:rotate(90deg) scale(.4)}
+  body,.hero,.stats{transition:background-color .45s ease,color .45s ease}
+
+  /* ---------- light theme ---------- */
+  html[data-theme="light"]{color-scheme:light}
+  html[data-theme="light"] body{background:#f5f3ee}
+  html[data-theme="light"] .hero{background:#f5f3ee;color:#0e0f13}
+  html[data-theme="light"] .stats{background:#f5f3ee;color:#0e0f13}
+  html[data-theme="light"] .hero-top{border-color:rgba(14,15,19,.24)}
+  html[data-theme="light"] .hero-top .anno{color:rgba(14,15,19,.72)}
+  html[data-theme="light"] .circled svg{color:var(--indigo)}
+  html[data-theme="light"] .hero-script{color:var(--indigo)}
+  html[data-theme="light"] .hero-foot{border-color:rgba(14,15,19,.24)}
+  html[data-theme="light"] .link-under{color:#0e0f13}
+  html[data-theme="light"] .link-under:hover{color:var(--indigo)}
+  html[data-theme="light"] .hero-sub{color:rgba(14,15,19,.78)}
+  html[data-theme="light"] .scroll-cue{color:rgba(14,15,19,.72)}
+  html[data-theme="light"] .wire{background:linear-gradient(180deg,#0e0f13,transparent)}
+  html[data-theme="light"] .hero-bg::before{background-image:radial-gradient(rgba(14,15,19,.2) 1px,transparent 1.4px);opacity:.4}
+  html[data-theme="light"] .hero-bg::after{background:radial-gradient(ellipse 48% 42% at 50% 56%,rgba(245,243,238,.85),transparent 74%)}
+  html[data-theme="light"] .stat{border-color:rgba(14,15,19,.24)}
+  html[data-theme="light"] .stat .anno{color:rgba(14,15,19,.62)}
+  html[data-theme="light"] .pill-nav{background:rgba(255,255,255,.55);border-color:rgba(14,15,19,.12);box-shadow:0 12px 40px rgba(40,35,120,.14)}
+  html[data-theme="light"] .pill-nav.scrolled{background:rgba(255,255,255,.8)}
+  html[data-theme="light"] .plink{color:rgba(14,15,19,.82)}
+  html[data-theme="light"] .plink:hover{color:var(--indigo)}
+  html[data-theme="light"] .nav-cta{background:var(--ink);color:#fff}
+  html[data-theme="light"] .nav-cta:hover{background:var(--indigo)}
+  html[data-theme="light"] .burger{background:var(--ink)}
+  html[data-theme="light"] .burger span{background:#fff}
+  html[data-theme="light"] .logo-chip img{filter:invert(1) hue-rotate(180deg) drop-shadow(0 0 8px rgba(30,40,120,.18))}
+  html[data-theme="light"] .theme-toggle{background:rgba(255,255,255,.55);border-color:rgba(14,15,19,.14);box-shadow:0 12px 40px rgba(40,35,120,.14);color:#0e0f13}
+  html[data-theme="light"] .progress{background:var(--indigo)}
 </style>
 </head>
 <body>
@@ -340,6 +391,11 @@
   <span class="cta-txt">Start<br>a project</span>
   <span class="cta-circle"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M7 17L17 7M17 7H9M17 7v8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
 </a>
+
+<button class="theme-toggle" type="button" aria-label="Switch theme">
+  <svg class="tt-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.5v2.3M12 19.2v2.3M2.5 12h2.3M19.2 12h2.3M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M19.4 4.6l-1.7 1.7M6.3 17.7l-1.7 1.7"/></svg>
+  <svg class="tt-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 14.2A8.6 8.6 0 0 1 9.8 3.4a8.6 8.6 0 1 0 10.8 10.8Z"/></svg>
+</button>
 
 <nav class="pill-nav" aria-label="Main">
   <a class="logo-chip" href="#hero" aria-label="NexVeins home"><img src="assets/logo.webp" alt="NexVeins logo" width="400" height="307" decoding="async"></a>
@@ -742,6 +798,22 @@
     });
   });
 })();
+
+(function(){
+  var btn=document.querySelector('.theme-toggle');
+  if(!btn) return;
+  var meta=document.querySelector('meta[name="theme-color"]');
+  function label(t){btn.setAttribute('aria-label',t==='light'?'Switch to dark theme':'Switch to light theme')}
+  label(document.documentElement.getAttribute('data-theme')||'dark');
+  btn.addEventListener('click',function(){
+    var t=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';
+    document.documentElement.setAttribute('data-theme',t);
+    if(meta)meta.setAttribute('content',t==='light'?'#f5f3ee':'#0e0f13');
+    label(t);
+    try{localStorage.setItem('nv-theme',t)}catch(e){}
+    if(window.__nvSceneTheme)window.__nvSceneTheme(t==='light');
+  });
+})();
 </script>
 <script>
 (function(){
@@ -795,17 +867,21 @@
     var segCount=segT.length;
     var colArr=new Float32Array(segCount*3);
     lineGeo.setAttribute('color',new THREE.BufferAttribute(colArr,3));
-    group.add(new THREE.LineSegments(lineGeo,new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:.6,blending:THREE.AdditiveBlending,depthWrite:false})));
+    var lineMat=new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:.6,blending:THREE.AdditiveBlending,depthWrite:false});
+    group.add(new THREE.LineSegments(lineGeo,lineMat));
 
     var nodeGeo=new THREE.BufferGeometry().setFromPoints(pts);
     var nCol=new Float32Array(N*3);
     nodeGeo.setAttribute('color',new THREE.BufferAttribute(nCol,3));
-    group.add(new THREE.Points(nodeGeo,new THREE.PointsMaterial({vertexColors:true,size:.075,transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true})));
+    var nodeMat=new THREE.PointsMaterial({vertexColors:true,size:.075,transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true});
+    group.add(new THREE.Points(nodeGeo,nodeMat));
 
     // glowing wireframe core
-    var core=new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(1.05,1)),new THREE.LineBasicMaterial({color:0x48d6ff,transparent:true,opacity:.3,blending:THREE.AdditiveBlending,depthWrite:false}));
+    var coreMat=new THREE.LineBasicMaterial({color:0x48d6ff,transparent:true,opacity:.3,blending:THREE.AdditiveBlending,depthWrite:false});
+    var core=new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(1.05,1)),coreMat);
     group.add(core);
-    var glow=new THREE.Mesh(new THREE.SphereGeometry(.72,24,18),new THREE.MeshBasicMaterial({color:0x2f8dff,transparent:true,opacity:.14,blending:THREE.AdditiveBlending,depthWrite:false}));
+    var glowMat=new THREE.MeshBasicMaterial({color:0x2f8dff,transparent:true,opacity:.14,blending:THREE.AdditiveBlending,depthWrite:false});
+    var glow=new THREE.Mesh(new THREE.SphereGeometry(.72,24,18),glowMat);
     group.add(glow);
 
     // far dust field for depth
@@ -816,7 +892,8 @@
     }
     var dustGeo=new THREE.BufferGeometry();
     dustGeo.setAttribute('position',new THREE.Float32BufferAttribute(dp,3));
-    var dust=new THREE.Points(dustGeo,new THREE.PointsMaterial({color:0xffffff,size:.035,transparent:true,opacity:.5,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true}));
+    var dustMat=new THREE.PointsMaterial({color:0xffffff,size:.035,transparent:true,opacity:.5,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true});
+    var dust=new THREE.Points(dustGeo,dustMat);
     scene.add(dust);
 
     function fit(){
@@ -846,6 +923,7 @@
 
     // light pulses travel outward along the veins
     var cBase=new THREE.Color(0x2f8dff),cHot=new THREE.Color(0xa5f3ff),tmpC=new THREE.Color();
+    var lastW1=2.4,lastW2=6.2;
     function paint(w1,w2){
       var k,d,g;
       for(k=0;k<segCount;k++){
@@ -875,7 +953,7 @@
       t+=.016;
       mx+=(tmx-mx)*.05;my+=(tmy-my)*.05;
       var w1=(t*.85)%7.6,w2=(t*.85+3.8)%7.6;
-      paint(w1,w2);
+      paint(w1,w2);lastW1=w1;lastW2=w2;
       group.rotation.y=mx*.5+sp*1.4+t*.04;
       group.rotation.x=my*.3+sp*.6;
       group.position.z=sp*2.6;
@@ -886,7 +964,26 @@
       dust.rotation.y=t*.01;
       render();
     }
-    paint(2.4,6.2);
+    function applyTheme(light){
+      var blend=light?THREE.NormalBlending:THREE.AdditiveBlending;
+      lineMat.blending=blend;nodeMat.blending=blend;coreMat.blending=blend;dustMat.blending=blend;
+      if(light){
+        cBase.setHex(0x4643e0);cHot.setHex(0x121fbf);
+        coreMat.color.setHex(0x4643e0);coreMat.opacity=.42;
+        dustMat.color.setHex(0x1a1c3a);dustMat.opacity=.2;
+        glow.visible=false;
+      }else{
+        cBase.setHex(0x2f8dff);cHot.setHex(0xa5f3ff);
+        coreMat.color.setHex(0x48d6ff);coreMat.opacity=.3;
+        dustMat.color.setHex(0xffffff);dustMat.opacity=.5;
+        glow.visible=true;
+      }
+      lineMat.needsUpdate=true;nodeMat.needsUpdate=true;coreMat.needsUpdate=true;dustMat.needsUpdate=true;
+      paint(lastW1,lastW2);
+      if(reduced)render();
+    }
+    applyTheme(document.documentElement.getAttribute('data-theme')==='light');
+    window.__nvSceneTheme=applyTheme;
     render();
     if(reduced){render();}
     else{tick();}
