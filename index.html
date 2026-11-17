@@ -246,7 +246,9 @@
 
   /* ---------- pricing / faq ---------- */
   .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
-  .price-card{position:relative;border:1px solid rgba(255,255,255,.24);border-radius:18px;padding:28px 26px;display:flex;flex-direction:column}
+  .price-card{position:relative;border:1px solid rgba(255,255,255,.24);border-radius:18px;padding:28px 26px;display:flex;flex-direction:column;transition:transform .3s,border-color .3s,box-shadow .3s}
+  .price-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.5);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+  .price-card.hot:hover{border-color:var(--cyan);box-shadow:0 18px 50px rgba(72,214,255,.14)}
   .price-card.hot{border-color:var(--cyan);background:rgba(72,214,255,.07)}
   .hot-tag{position:absolute;top:-13px;left:24px;background:var(--cyan);color:var(--ink);border-radius:999px;padding:5px 14px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
   .price-name{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72)}
@@ -549,7 +551,7 @@
       </div>
       <h2 class="sec-title">Pick your<br>speed</h2>
     </div>
-    <div class="price-grid" data-reveal-group>
+    <div class="price-grid">
       <article class="price-card">
         <span class="price-name">Starter</span>
         <div class="price">$990</div>
@@ -672,6 +674,29 @@
     gsap.from(g.children,{opacity:0,y:34,duration:.8,stagger:.12,ease:'power3.out',
       scrollTrigger:{trigger:g,start:'top 85%',once:true}});
   });
+
+  var pgrid=document.querySelector('.price-grid');
+  if(pgrid){
+    var pcards=pgrid.querySelectorAll('.price-card');
+    var ptl=gsap.timeline({defaults:{ease:'power3.out'},
+      scrollTrigger:{trigger:pgrid,start:'top 85%',once:true}});
+    ptl.from(pcards,{opacity:0,y:48,duration:.85,stagger:.14,clearProps:'transform,opacity'})
+       .from('.price-grid .hot-tag',{opacity:0,scale:.6,duration:.55,ease:'back.out(1.8)'},'-=.35');
+    pcards.forEach(function(card,i){
+      var price=card.querySelector('.price');
+      var lis=card.querySelectorAll('.dash-list li');
+      var raw=price.textContent.trim();
+      var target=parseFloat(raw.replace(/[^0-9.]/g,''));
+      if(lis.length) ptl.from(lis,{opacity:0,x:-18,duration:.5,stagger:.08,ease:'power2.out'},.5+i*.14);
+      if(target){
+        var prefix=raw.charAt(0)==='$'?'$':'';
+        var o={v:0};
+        ptl.to(o,{v:target,duration:1.1,ease:'power2.out',onUpdate:function(){
+          price.textContent=prefix+Math.round(o.v).toLocaleString('en-US');
+        }},.6+i*.14);
+      }
+    });
+  }
 
   gsap.utils.toArray('[data-count]').forEach(function(el){
     var end=parseFloat(el.getAttribute('data-count'))||0;
