@@ -65,6 +65,7 @@
   .orb-1{width:620px;height:620px;background:rgba(47,141,255,.14);top:-200px;left:50%;transform:translateX(-50%)}
   .orb-2{width:420px;height:420px;background:rgba(72,214,255,.09);bottom:-120px;right:-140px}
   .grid-lines{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 25%,transparent 78%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 25%,transparent 78%)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 48% 42% at 50% 54%,rgba(4,6,12,.72),transparent 74%)}
   .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;border:1px solid rgba(72,214,255,.35);background:rgba(47,141,255,.08);color:var(--cyan);font-size:13px;font-weight:600;margin-bottom:26px}
   .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:pulse 2s infinite}
   @keyframes pulse{50%{opacity:.35}}
@@ -209,6 +210,7 @@
     html{scroll-behavior:auto}
     .js .hero-badge,.js .hero-sub,.js .hero-cta,.js .scroll-cue,.js .hl-line,.js [data-reveal]{opacity:1;transform:none}
   }
+  @media (max-height:720px){.scroll-cue{display:none}}
   @media (max-width:900px){
     .nav-links{display:none}
     .nav .btn-accent{display:none}
@@ -580,7 +582,7 @@
     .to('.scroll-cue',{opacity:1,y:0},.8);
 
   // hero content drifts up on scroll
-  gsap.to('.hero .wrap, .scroll-cue',{y:-70,opacity:0,ease:'none',
+  gsap.to('.hero .wrap',{y:-70,opacity:0,ease:'none',
     scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom 40%',scrub:true}});
 
   // scroll progress
@@ -597,7 +599,7 @@
       scrollTrigger:{trigger:el,start:'top 88%',once:true}});
   });
   gsap.utils.toArray('[data-reveal-group]').forEach(g=>{
-    gsap.to(g.children,{opacity:1,y:0,duration:.8,ease:'power3.out',stagger:.12,
+    gsap.from(g.children,{opacity:0,y:30,duration:.8,ease:'power3.out',stagger:.12,
       scrollTrigger:{trigger:g,start:'top 85%',once:true}});
   });
 
@@ -630,7 +632,7 @@
 })();
 </script>
 <script type="module">
-import * as THREE from './vendor/three.module.js';
+import * as THREE from './assets/vendor/three.module.js';
 try{
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const canvas = document.getElementById('veins-canvas');
@@ -672,12 +674,18 @@ try{
   group.add(new THREE.Points(nodeGeo,new THREE.PointsMaterial({color:0x66dcff,size:.075,transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true})));
 
   function fit(){
-    const w = canvas.clientWidth || canvas.parentElement.clientWidth;
-    const h = canvas.clientHeight || canvas.parentElement.clientHeight;
+    const r = canvas.parentElement.getBoundingClientRect();
+    const w = r.width || canvas.clientWidth;
+    const h = r.height || canvas.clientHeight;
+    if(!w || !h) return;
     renderer.setSize(w,h,false);
     camera.aspect = w/h; camera.updateProjectionMatrix();
   }
-  fit(); addEventListener('resize', fit);
+  fit();
+  requestAnimationFrame(()=>requestAnimationFrame(fit));
+  addEventListener('load', fit);
+  setTimeout(fit, 400);
+  addEventListener('resize', fit);
 
   let tx=0,ty=0,mx=0,my=0,sp=0;
   addEventListener('mousemove', e=>{tx=e.clientX/innerWidth-.5; ty=e.clientY/innerHeight-.5;}, {passive:true});
