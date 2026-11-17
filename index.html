@@ -41,9 +41,9 @@
   .progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--cyan);z-index:80}
 
   /* ---------- pill nav ---------- */
-  .pill-nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:24px;background:transparent;border-radius:999px;padding:12px 16px;transition:transform .45s cubic-bezier(.2,.7,.2,1),background .4s ease,box-shadow .4s ease,padding .4s ease,gap .4s ease;animation:navIn .9s cubic-bezier(.2,.7,.2,1) .15s backwards}
+  .pill-nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:24px;background:rgba(14,15,19,.38);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:12px 16px;box-shadow:0 12px 40px rgba(0,0,0,.25);transition:transform .45s cubic-bezier(.2,.7,.2,1),background .4s ease,box-shadow .4s ease,padding .4s ease,gap .4s ease;animation:navIn .9s cubic-bezier(.2,.7,.2,1) .15s backwards}
   @keyframes navIn{from{transform:translate(-50%,-90px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
-  .pill-nav.scrolled{background:rgba(14,15,19,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 12px 40px rgba(0,0,0,.32);padding:7px 9px;gap:16px}
+  .pill-nav.scrolled{background:rgba(14,15,19,.62);box-shadow:0 12px 40px rgba(0,0,0,.32);padding:7px 9px;gap:16px}
   .pill-nav.hide{transform:translate(-50%,-150%)}
   .logo-chip{width:46px;height:46px;display:grid;place-items:center;flex:none;transition:width .4s,height .4s}
   .pill-nav.scrolled .logo-chip{width:34px;height:34px}
@@ -75,11 +75,26 @@
   .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--indigo);color:#fff;overflow:hidden;padding-bottom:7vh}
   .hero-bg{position:absolute;inset:0;pointer-events:none}
   #veins-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.85}
+  .hero-bg::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.15) 1px,transparent 1.4px);background-size:26px 26px;opacity:.5;mask-image:radial-gradient(ellipse 62% 55% at 30% 42%,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 62% 55% at 30% 42%,#000,transparent 75%)}
   .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 48% 42% at 50% 56%,rgba(20,18,110,.55),transparent 74%)}
+  .hero-shot{position:absolute;top:140px;right:0;z-index:3;width:min(300px,26vw);background:#fff;color:var(--ink);border-radius:16px;padding:16px 16px 13px;box-shadow:0 24px 60px rgba(10,8,60,.35);rotate:3deg;transition:rotate .35s}
+  .hero-shot:hover{rotate:1deg}
+  .hero-shot .shot-head{display:flex;align-items:center;gap:8px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(14,15,19,.62);border-bottom:1px solid var(--line-ink);padding-bottom:9px;margin-bottom:12px}
+  .hero-shot .shot-head i{width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 3px rgba(72,214,255,.25);flex:none}
+  .shot-row{margin-bottom:11px}
+  .shot-row .lbl{display:flex;justify-content:space-between;font-size:11.5px;font-weight:600;margin-bottom:5px}
+  .shot-row .lbl .pct{color:var(--blue);font-weight:700}
+  .shot-row .bar{height:7px;border-radius:99px;background:rgba(14,15,19,.12);overflow:hidden}
+  .shot-row .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--indigo),var(--cyan))}
+  .shot-foot{font-size:10.5px;color:rgba(14,15,19,.55);border-top:1px dashed var(--line-ink);padding-top:9px}
   .hero-wrap{position:relative;z-index:2}
   .hero-top{display:flex;justify-content:space-between;gap:16px;padding:110px 0 18px;border-bottom:1px solid var(--line-wht)}
   .hero-top .anno{color:rgba(255,255,255,.78)}
-  .hero-title{font-family:var(--font-display);font-weight:400;font-size:clamp(58px,12.4vw,176px);line-height:.92;text-transform:uppercase;letter-spacing:.005em;margin-top:22px}
+  .hero-title{font-family:var(--font-display);font-weight:400;font-size:clamp(52px,10.2vw,140px);line-height:.92;text-transform:uppercase;letter-spacing:.005em;margin-top:22px}
+  .hero-title .l2{margin-left:6%}
+  .hero-title .l3{margin-left:15%}
+  .hero-title .outline{color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.92)}
+  @supports not (-webkit-text-stroke:1px #fff){.hero-title .outline{color:#fff}}
   .circled{position:relative;display:inline-block}
   .circled svg{position:absolute;left:-7%;top:-16%;width:114%;height:136%;color:var(--cyan);pointer-events:none}
   .hero-script{font-family:var(--font-script);font-size:clamp(21px,2.5vw,30px);font-weight:600;color:var(--cyan);transform:rotate(-1.2deg);max-width:600px;margin-top:14px}
@@ -88,8 +103,8 @@
   .t1{transform:rotate(-2deg)} .t2{transform:rotate(1.4deg)} .t3{transform:rotate(-1deg)}
   .hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:36px;border-top:1px solid var(--line-wht);padding-top:24px;margin-top:26px}
   .hero-cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
-  .btn-ink{background:var(--ink);color:#fff;border-radius:999px;padding:15px 26px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:transform .25s,background .25s}
-  .btn-ink:hover{background:#000;transform:translateY(-2px)}
+  .btn-ink{background:var(--ink);color:#fff;border-radius:999px;padding:15px 26px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;box-shadow:6px 6px 0 rgba(72,214,255,.9);transition:transform .25s,background .25s,box-shadow .25s}
+  .btn-ink:hover{background:#000;transform:translate(2px,-2px);box-shadow:9px 9px 0 rgba(72,214,255,.9)}
   .link-under{color:#fff;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border-bottom:2px solid var(--cyan);padding-bottom:5px}
   .link-under:hover{color:var(--cyan)}
   .hero-sub{max-width:380px;font-size:14px;color:rgba(255,255,255,.82)}
@@ -197,12 +212,12 @@
   .foot-links a:hover{color:var(--cyan)}
 
   /* ---------- js gating / motion prefs ---------- */
-  .js .hl-line,.js .hero-script,.js .hero-tags,.js .hero-foot,.js .scroll-cue,.js [data-reveal]{opacity:0;transform:translateY(26px)}
+  .js .hl-line,.js .hero-script,.js .hero-tags,.js .hero-shot,.js .hero-foot,.js .scroll-cue,.js [data-reveal]{opacity:0;transform:translateY(26px)}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     .wire,.mq-track{animation:none}
     .pill-nav{animation:none}
-    .js .hl-line,.js .hero-script,.js .hero-tags,.js .hero-foot,.js .scroll-cue,.js [data-reveal]{opacity:1;transform:none}
+    .js .hl-line,.js .hero-script,.js .hero-tags,.js .hero-shot,.js .hero-foot,.js .scroll-cue,.js [data-reveal]{opacity:1;transform:none}
   }
   @media (max-height:720px){.scroll-cue{display:none}}
 
@@ -215,6 +230,7 @@
     .pill-nav.scrolled{gap:10px;padding:6px 7px}
     .logo-chip{width:40px;height:40px}
     .pill-nav.scrolled .logo-chip{width:32px;height:32px}
+    .hero-shot{position:static;width:min(320px,86%);margin:26px 0 0;rotate:2deg}
     .hero-top{padding-top:96px}
     .hero-foot{flex-direction:column;align-items:flex-start;gap:22px}
     .scroll-cue{display:none}
@@ -280,14 +296,22 @@
       <span class="anno">Est. 2026 — remote, worldwide</span>
     </div>
     <h1 class="hero-title">
-      <span class="hl-line">Technology</span>
-      <span class="hl-line">in every <span class="circled">vein<svg viewBox="0 0 220 92" fill="none" aria-hidden="true"><path d="M14 48C8 26 52 10 112 8s98 12 96 34-44 36-102 38S22 72 14 48Z" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".9"/></svg></span></span>
+      <span class="hl-line l1">Technology</span>
+      <span class="hl-line l2 outline">in every</span>
+      <span class="hl-line l3"><span class="circled">vein<svg viewBox="0 0 220 92" fill="none" aria-hidden="true"><path d="M14 48C8 26 52 10 112 8s98 12 96 34-44 36-102 38S22 72 14 48Z" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".9"/></svg></span></span>
     </h1>
     <p class="hero-script">we build the systems your business runs on — and the intelligence that runs inside them.</p>
     <div class="hero-tags" aria-label="What we do">
       <span class="tag t1">AI Integration</span>
       <span class="tag t2">Workflow Automation</span>
       <span class="tag t3">Custom Software</span>
+    </div>
+    <div class="hero-shot" aria-hidden="true">
+      <div class="shot-head"><i></i>Ops rail — live demo</div>
+      <div class="shot-row"><div class="lbl"><span>Quotes auto-sent</span><span class="pct">86%</span></div><div class="bar"><i style="width:86%"></i></div></div>
+      <div class="shot-row"><div class="lbl"><span>Reports compiled</span><span class="pct">64%</span></div><div class="bar"><i style="width:64%"></i></div></div>
+      <div class="shot-row"><div class="lbl"><span>Follow-ups queued</span><span class="pct">41%</span></div><div class="bar"><i style="width:41%"></i></div></div>
+      <div class="shot-foot">Illustrative preview — your workflow here</div>
     </div>
     <div class="hero-foot">
       <div class="hero-cta">
@@ -537,7 +561,8 @@
   tl.to('.hl-line',{opacity:1,y:0,duration:.95,stagger:.14},.25)
     .to('.hero-script',{opacity:1,y:0,duration:.7},.75)
     .to('.hero-tags',{opacity:1,y:0,duration:.7},.95)
-    .to('.hero-foot',{opacity:1,y:0,duration:.7},1.1)
+    .from('.hero-shot',{opacity:0,y:36,duration:.9},1.0)
+    .to('.hero-foot',{opacity:1,y:0,duration:.7},1.15)
     .to('.scroll-cue',{opacity:1,duration:.6},1.3);
 
   gsap.to('.hero .wrap',{y:-70,opacity:0,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom 45%',scrub:true}});
